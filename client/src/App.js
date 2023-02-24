@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css"
 
 function App() {
