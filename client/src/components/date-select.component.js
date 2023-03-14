@@ -31,7 +31,6 @@ const daysInEachMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var currentDate = new Date();
 
 var currentYear = currentDate.getFullYear();
-var currentMonth = months[parseInt(String(currentDate.getMonth() + 1).padStart(2, '0') - 1)];
 var currentMonthIndex = parseInt(String(currentDate.getMonth() + 1).padStart(2, '0') - 1);
 var currentDay = String(currentDate.getDate()).padStart(2, '0');
 
