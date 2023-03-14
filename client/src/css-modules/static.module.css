@@ -1,0 +1,229 @@
+html, body {
+    margin: 0;
+    padding: 0;
+ }
+
+/*Backgound images*/
+.pageStyling1 {
+    background-image: url('../media/main-background.jpg'); 
+    background-size: cover;
+    
+}
+
+.pageStyling2 {
+    background-image: url('../media/second-background.jpg'); 
+    background-size: cover;
+}
+
+.pageStyling3 {
+    background-image: url('../media/third-background.jpg'); 
+    background-size: cover;
+}
+
+.pageStyling4 {
+    background-image: url('../media/forth-background.jpg'); 
+    background-size: cover;
+}
+
+/*Menu, header and footer fixed styling, positioning, size and layout*/
+.titleRight {
+    margin: auto;
+
+    position: fixed;
+    right: 0;
+    z-index: 1;
+
+    padding-right: 3.5vw;
+    padding-top: 5vh;
+    
+    width: 100vh;
+
+    text-align: right;
+}
+
+.titleLeft {
+    margin: auto;
+
+    position: fixed;
+    left: 0;
+    z-index: 1;
+
+    padding-left: 3.5vw;
+    padding-top: 5vh;
+    
+    width: 100vh;
+
+    text-align: left;
+}
+
+.p {
+    margin-bottom: 5vh;
+}
+
+.pageContainer {
+    background-color: #00000050;
+
+    padding-bottom: 60vh;
+    padding-top: 15vh;
+
+    width: 75vw;
+    height: 100%;
+}
+
+.menuLeftLayout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.menuButton {
+    width: 25vw;
+    height: 15vh;
+
+    padding-bottom: 5px;
+}
+
+.menuTop {
+    width: 25vw;
+    height: 15vh;
+}
+
+/*Booking component fixed styling, positioning, size and layout*/
+.bookingComponentContainer { 
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    width: 70vw;
+    height: 30vh;
+
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.timeAndConfirmationContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.bookingButton {
+    width: 44.9vw;
+    height: 8vh;
+
+    position: fixed;
+    bottom: 2vh;
+
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+/*Date select component fixed styling, positioning, size and layout*/
+.dateSelectContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 20vw;
+    height: 26vh;
+
+    margin-top: 1.5vh;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+
+}
+
+.monthSelectorContainer {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+    width: 20vw;
+    height: 4vh;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    font-weight: 750;
+    font-size: 1.4vw;
+}
+
+.dayGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    width: 20vw;
+    height: 22vh;
+}
+
+.dayButton {
+    width: 2.857vw; 
+    height: 4.4vh;
+
+    font-size: 1.2vw;
+}
+
+/*Time select component fixed styling, positioning, size and layout*/
+.timeSelectBoxContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 46.9vw;
+    height: 5vh;
+}
+
+/*Gallery component fixed styling, positioning, size and layout*/
+.galleryContainer { 
+    width: 70vw;
+    height: 70vh;
+
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px #000;
+}
+
+.galleryImage {
+    width: 70vw;
+    height: 70vh;
+}
+
+.carousel {
+    width: 70vw;
+    height: 70vh;
+}
+
+.carouselItem {
+    width: 70vw;
+    height: 70vh;
+}
+
+/*Price list component fixed styling, positioning, size and layout*/
+.priceMenu {
+    width: 70vw;
+
+    margin-top: 2.5vh;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px #000;
+}
+
+.priceListItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-width: 35vw;
+}
+
+/*Maps component fixed styling, positioning and size*/
+.mapContainer {
+    width: 70vw;
+    height: 40vh;
+
+    margin: 2.5vw;
+}
+
+
+
+

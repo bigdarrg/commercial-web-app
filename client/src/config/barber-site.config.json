@@ -1,0 +1,23 @@
+{
+    "TITLE": "World's Best Barbers",
+    "DESCRIPTION" : "The best barber's in the world.",
+    "STYLE" : "modern",
+    "OPENINGTIMES": {
+        "MONDAY": "09:00-17:30",
+        "TUESDAY": "09:00-17:30",
+        "WEDNESDAY": "09:00-17:30",
+        "THURSDAY": "09:00-17:30",
+        "FRIDAY": "09:00-17:30",
+        "SATURDAY": "09:00-17:30",
+        "SUNDAY": "10:00-16:00"
+    },
+    "PRICES": {
+        "STANDARD MENS": 12,
+        "STANDARD BOYS": 8,
+        "SKIN FADE": 16,
+        "STANDARD MENS W/ FACIAL": 15,
+        "SKIN FADE W/ FACIAL": 18,
+        "STYLING": 5
+    }, 
+    "CURRENCY": "£"
+}
