@@ -12,12 +12,15 @@
         "SUNDAY": "10:00-16:00"
     },
     "PRICES": {
-        "STANDARD MENS": 12,
-        "STANDARD BOYS": 8,
-        "SKIN FADE": 16,
-        "STANDARD MENS W/ FACIAL": 15,
-        "SKIN FADE W/ FACIAL": 18,
-        "STYLING": 5
+        "Standard Mens": 12,
+        "Standard Boys": 8,
+        "Skin Fade": 16,
+        "Standard Mens with Beard": 15,
+        "Skin Fade with Beard": 18,
+        "Styled": 5
     }, 
-    "CURRENCY": "£"
+    "CURRENCY": "£",
+    "INSTAGRAM": "www.instagram.com",
+    "FACEBOOK": "www.facebook.com",
+    "TWITTER": "www.twitter.com"
 }

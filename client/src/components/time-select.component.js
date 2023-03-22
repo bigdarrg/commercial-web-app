@@ -77,7 +77,7 @@ const openHours = (function() {
 
 
 //---- Current implementation determines using only opening hours from the config file
-function getOpenHoursForDay(day, month, year) {
+function getAvailableTimes(day, month, year) {
   //Calculate based on opening hours in config file
   const dateObj = new Date(
     month + " " + String(formatIntToTwoDigits(day)) + "," + year
@@ -85,43 +85,35 @@ function getOpenHoursForDay(day, month, year) {
 
   const dayOfTheWeekIndex = ((dateObj.getDay() + 6) % 7);
 
-  return openHours[dayOfTheWeekIndex].slice(0, -1);
-}
+  const hoursOpen = openHours[dayOfTheWeekIndex].slice(0, -1);
 
-function getMinutesForHour(){
-  const timesAvailable = minutes;
+  var availabilityAll = [];
 
-  return timesAvailable;
+  hoursOpen.forEach((hour) => {minutes.forEach((time) => {availabilityAll.push([hour, time]);});
+  });
+
+  return availabilityAll;
 }
 
 
 //For generating JSX for time select
-function generateHourSelectOptionsJSX(hours){
+function generateAvailableTimesJSX(availableTimes, availableTimeButtonFunction){
     var JSXArray = [];
 
-    function generateHourJSX(hour){
-        return <option value={parseInt(hour)}>{hour}</option>
-    }
-
-    for (var optionIndex = 0; optionIndex < hours.length; optionIndex++){
-      JSXArray.push(generateHourJSX(formatIntToTwoDigits(hours[optionIndex])));
-    } 
+    availableTimes.forEach((time) => {JSXArray.push(
+      <button onClick={() => availableTimeButtonFunction([time[0], time[1]])} className={staticFeatures.availableTimeButton}>
+        <p>{formatIntToTwoDigits(time[0])}.{formatIntToTwoDigits(time[1])}
+        {(time[0] < 12) &&
+        "am"
+        }
+        {(time[0] >= 12) && 
+        "pm"
+        }
+        </p>
+      </button>
+    )});
 
     return  JSXArray;
-}
-
-function generateMinuteSelectOptionsJSX(minutes){
-  var JSXArray = [];
-
-  function generateMinuteJSX(minute){
-      return <option value={parseInt(minute)}>{minute}</option>
-  }
-
-  for (var optionIndex = 0; optionIndex < minutes.length; optionIndex++){
-    JSXArray.push(generateMinuteJSX(formatIntToTwoDigits(minutes[optionIndex])));
-  } 
-
-  return JSXArray;
 }
 
 
@@ -134,25 +126,17 @@ export default class TimeSelector extends Component {
     minuteSelected : undefined
   };
 
-  this.onHourChange = this.onHourChange.bind(this);
-  this.onMinuteChange = this.onMinuteChange.bind(this);
+  this.handleTimeSelected = this.handleTimeSelected.bind(this);
 
   }
 
-  onHourChange(selectEvent) {
-    this.setState({
-      hourSelected: selectEvent.target.value
+  handleTimeSelected(timeSelected) {
+    this.setState({ 
+      hourSelected: timeSelected[0],
+      minuteSelected: timeSelected[1]
     });
 
-    this.props.handleSelect(selectEvent.target.value, this.state.minuteSelected)
-  }
-
-  onMinuteChange(selectEvent) {
-    this.setState({
-      minuteSelected: selectEvent.target.value
-    });
-
-    this.props.handleSelect(this.state.hourSelected, selectEvent.target.value)
+    this.props.handleSelect(timeSelected[0], timeSelected[1])
   }
 
   render() {
@@ -160,15 +144,13 @@ export default class TimeSelector extends Component {
     const monthSelected = this.props.month;
 
     return (
-        <div className={staticFeatures.timeSelectBoxContainer}>
-            <select className={websiteStyle.timeSelectBox} onChange={this.onHourChange}>
-                {generateHourSelectOptionsJSX(getOpenHoursForDay(daySelected, monthSelected, currentYear))}
-            </select>
+        <div className={staticFeatures.timeSelectContainer}>
+            <div>Slot availability</div>
 
-            <select className={websiteStyle.timeSelectBox} onChange={this.onMinuteChange}>
-                {generateMinuteSelectOptionsJSX(getMinutesForHour(minutes))}
-            </select>
+            <div className={staticFeatures.availableTimesContainer}>
+              {generateAvailableTimesJSX(getAvailableTimes(daySelected, monthSelected, currentYear), this.handleTimeSelected)}
+            </div>
         </div>
     );
   }
-}
+}         

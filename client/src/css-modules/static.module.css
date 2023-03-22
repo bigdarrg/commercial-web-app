@@ -60,10 +60,14 @@ html, body {
     margin-bottom: 5vh;
 }
 
+.textCentered {
+    text-align: center;
+}
+
 .pageContainer {
     background-color: #00000050;
 
-    padding-bottom: 60vh;
+    padding-bottom: 10vh;
     padding-top: 15vh;
 
     width: 75vw;
@@ -87,32 +91,101 @@ html, body {
     height: 15vh;
 }
 
-/*Booking component fixed styling, positioning, size and layout*/
-.bookingComponentContainer { 
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+.footer {
+    width: 100vw;
+    height: 10vh;
 
-    width: 70vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/*Space component sizes*/
+.smallSpace {
+    height: 5vh;
+}
+
+.mediumSpace {
+    height: 15vh;
+}
+
+.largeSpace {
     height: 30vh;
+}
+
+/*Awards display component fixed styling, positioning and layout.*/
+.awardsContainer {
+    width: 100%;
+    height: 20vh;
+
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+/*Social media panel component fixed styling, positioning and layout.*/
+.socialsPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    width: 99%;
+    height: 100%;
+
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.socialSlot {
+    width: 100%;
+    height: 100%;
+}
+
+.socialButton {
+    width: 100%;
+    height: 100%;
+
+    background: transparent;
+    
+    border-radius: 0.4vw;
+}
+
+.socialButton:hover {
+    border: none;
+}
+
+.socialIcon {
+    width: 20%;
+    height: 80%;
+
+    transform: translate(7.5%, 7.5%);
+}
+
+/*Booking component fixed styling, positioning, size and layout*/
+.bookingContainer { 
+    width: 70vw;
+
+    padding: 2vh;
 
     margin-left: 2.5vw;
     margin-right: 2.5vw;
-}
 
-.timeAndConfirmationContainer {
-    display: grid;
-    grid-template-columns: 1fr;
+    font-weight: 750;
+    font-size: 1.4vw;
 }
 
 .bookingButton {
-    width: 44.9vw;
-    height: 8vh;
+    width: 68vw;
+    height: 10vh;
 
-    position: fixed;
-    bottom: 2vh;
+    margin-top: 2vw;
+}
 
-    margin-left: 1vw;
-    margin-right: 1vw;
+.completeBookingContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 68vw;
+    height: 15vh;
+
+    margin-top: 1vw;
 }
 
 /*Date select component fixed styling, positioning, size and layout*/
@@ -120,52 +193,128 @@ html, body {
     display: grid;
     grid-template-columns: 1fr;
 
-    width: 20vw;
-    height: 26vh;
+    width: 68vw;
+    height: 40vh;
 
-    margin-top: 1.5vh;
-    margin-bottom: 2vh;
-    margin-left: 1vw;
-
+    margin-bottom: 1vw;
+    margin-top: 5vw;
 }
 
 .monthSelectorContainer {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
 
-    width: 20vw;
+    width: 48vw;
     height: 4vh;
+    
+    margin-left: auto;
+    margin-right: auto;
 
     text-align: center;
-
-    text-transform: uppercase;
-
-    font-weight: 750;
-    font-size: 1.4vw;
 }
 
 .dayGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    width: 20vw;
-    height: 22vh;
+    width: 100%;
+    height: 100%;
 }
 
 .dayButton {
-    width: 2.857vw; 
-    height: 4.4vh;
+    width: 100%; 
+    height: 100%;
 
-    font-size: 1.2vw;
+    background-color: transparent;
+    border: none;
+
+    font-size: 1.5vw;
 }
 
-/*Time select component fixed styling, positioning, size and layout*/
-.timeSelectBoxContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.dayButton:enabled:hover {
+    box-shadow: 1px 1px 8px #000;
+    border-radius: 10vw;
 
-    width: 46.9vw;
-    height: 5vh;
+    background-color: #00000050;
+}
+
+.dayButton:focus {
+    box-shadow: 1px 1px 8px #000;
+    border-radius: 10vw;
+
+    background-color: #00000050;
+}
+
+.monthArrowButton {
+    background: transparent;
+    border: none;
+
+    box-shadow: 1px 1px 8px #000;
+}
+
+
+/*Time select component fixed styling, positioning, size and layout*/
+.timeSelectContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+
+    width: 69vw;
+    height: 60vh;
+}
+
+.availableTimesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    margin-top: 2vw;
+
+    width: 69vw;
+    height: 60vh;
+}
+
+.availableTimeButton {
+    width: 9.15vw; 
+    height: 5.71vh;
+
+    background-color: transparent;
+    border-radius: 2vw;
+
+    font-size: 1vw;
+
+    margin: 0.1vw;
+
+    text-align: center;
+}
+
+.availableTimeButton:focus {
+    background-color: #00000050;
+}
+
+.availableTimeButton:hover {
+    background-color: #00000050;
+}
+
+/*Info form component fixed styling, positioning, size and layout*/
+.infoFormContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.infoFormLabel {
+    width: 50%;
+
+    font-weight: 400;
+
+    margin: auto;
+}
+
+.infoFormInput {
+    width: 50%;
+
+    margin: auto;
 }
 
 /*Gallery component fixed styling, positioning, size and layout*/
@@ -198,23 +347,75 @@ html, body {
 }
 
 /*Price list component fixed styling, positioning, size and layout*/
-.priceMenu {
-    width: 70vw;
-
-    margin-top: 2.5vh;
+.pricesContainer { 
     margin-left: 2.5vw;
     margin-right: 2.5vw;
+    margin-bottom: 2vw;
+    margin-top: 2vw;
 
-    border-radius: 8px;
+    font-size: 1.4vw;
+    font-weight: 400;
+    
     box-shadow: 1px 1px 8px #000;
 }
 
 .priceListItem {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    min-width: 35vw;
+    grid-template-columns: 6fr 1fr;
 }
+
+.priceListItem:hover {
+    background-color: #00000050;
+
+    box-shadow: 1px 1px 8px #000;
+}
+
+.priceListItem:focus {
+    background-color: #00000050;
+
+    box-shadow: 1px 1px 8px #000;
+}
+
+.priceTextBox {
+    text-align: center;
+}
+
+.priceListButton {
+    width: 100%;
+    height: 100%;
+
+    background: none;
+    border: none;
+}
+
+/*Section completed component*/
+.sectionCompleted {
+    width: 68vw;
+    height: 10vh;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+
+    box-shadow: 1px 1px 8px #000;
+
+    margin-bottom: 1vw;
+}
+
+.sectionCompletedIcon {
+    width: 60%;
+    height: 60%;
+
+    transform: translate(7.5%, 7.5%);
+}
+
+.sectionCompletedCheck {
+    color: green;
+}
+
+.sectionCompletedInfo {
+    font-weight: 400;
+}
+
 
 /*Maps component fixed styling, positioning and size*/
 .mapContainer {
