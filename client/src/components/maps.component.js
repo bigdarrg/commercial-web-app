@@ -11,7 +11,6 @@ import staticFeatures from "../css-modules/static.module.css";
 
 export class LocationMap extends Component {
   render() {
-
     const mapSize = {
       width: "30vw",
       height: "40vh",

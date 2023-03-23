@@ -17,7 +17,7 @@ import Bookings from "./components/bookings.page";
 import GalleryPage from "./components/gallery.page";
 import ContactUs from "./components/contact-us.page";
 import Socials from "./components/social-media-panel.component";
-import { faBook, faContactCard, faHome, faImage, faInfo, faInfoCircle, faPerson } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faContactCard, faHome, faImage, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Determine website styling module from the config file

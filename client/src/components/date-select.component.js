@@ -11,18 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 //Loading configuration
-import configData from '../config/barber-site.config.json';
+//import configData from '../config/barber-site.config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
-import modernStyle from "../css-modules/modern.module.css";
-
-//Determine website styling module from the config file 
-const websiteStyle = (function() {
-  if (configData.STYLE === "modern"){
-    return modernStyle
-  }
-})();
 
 //This is needed data for the date selector
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
