@@ -10,6 +10,7 @@ import modernStyle from "../css-modules/modern.module.css";
 
 //Loading all components
 import Space from './spacing.component';
+import Socials from './social-media-panel.component';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
@@ -28,11 +29,18 @@ export default class ContactUs extends Component {
             </div>
 
             <div className={[staticFeatures.p, websiteStyle.p].join(' ')}>
-            Here will be all our contact information...
+              You can contact us through any of these means, or through our social media.
             </div>
 
-            <Space size="large" />
-            <Space size="small" />
+            <div className={[staticFeatures.p, websiteStyle.p].join(' ')}>
+              TELEPHONE: 07123456789
+              <br/>
+              EMAIL: worldsbestbarbers@barber.co.uk
+            </div>
+
+            <Space size={"large"}/>
+
+            <Socials/>
         </div> 
       </div>
     );

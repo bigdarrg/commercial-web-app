@@ -7,7 +7,6 @@ html, body {
 .pageStyling1 {
     background-image: url('../media/main-background.jpg'); 
     background-size: cover;
-    
 }
 
 .pageStyling2 {
@@ -39,6 +38,8 @@ html, body {
     width: 100vh;
 
     text-align: right;
+
+    
 }
 
 .titleLeft {
@@ -72,6 +73,8 @@ html, body {
 
     width: 75vw;
     height: 100%;
+
+    min-height: 100vh;
 }
 
 .menuLeftLayout {
@@ -115,10 +118,24 @@ html, body {
 /*Awards display component fixed styling, positioning and layout.*/
 .awardsContainer {
     width: 100%;
-    height: 20vh;
+    height: 30vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     margin-top: 2vw;
     margin-bottom: 2vw;
+}
+
+.awardsIconContainer {
+    text-align: center;
+}
+
+.awardsIcon {
+    width: 80%;
+    height: 30vh;
+
+    transform: translate(0%, -7.5%);
 }
 
 /*Social media panel component fixed styling, positioning and layout.*/
@@ -418,11 +435,16 @@ html, body {
 
 
 /*Maps component fixed styling, positioning and size*/
+.addressMapContainer {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+}
 .mapContainer {
-    width: 70vw;
+    width: 30vw;
     height: 40vh;
 
-    margin: 2.5vw;
+    box-shadow: 1px 1px 30px #000;
 }
 
 

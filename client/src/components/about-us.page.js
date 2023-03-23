@@ -10,7 +10,6 @@ import modernStyle from "../css-modules/modern.module.css";
 
 //Importing components
 import LocationMap from './maps.component';
-import Space from './spacing.component';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
@@ -22,7 +21,7 @@ const websiteStyle = (function() {
 export default class AboutUs extends Component {
   render() {
     return (
-      <div className={staticFeatures.pageStyling2}>
+      <div className={staticFeatures.pageStyling4}>
         <div className={staticFeatures.pageContainer}>
             <div className={websiteStyle.h2}>
               About us.
@@ -32,20 +31,30 @@ export default class AboutUs extends Component {
               We started back in the day when the developer ran the npm create-react-app command. Since then it's been nothing but no business at all, it has been non-non-stop.
 
               <br/>
-              <br/>
 
               We are located in a discrete location, one which you'll never actually come to, so it'll seem like we exist.
 
               <br/>
               <br/>
               <br/>
+
               
-              Come & see us at: Unknown Avenue, N0T4P05TC0D3, Left Side, Mars...
+              <div className={staticFeatures.addressMapContainer}>
+                <div>
+                  OUR ADRESS: 
+                  <br/>
+                  Bio-life Avenue 
+                  <br/>
+                  N0T4P05TC0D3 
+                  <br/>
+                  Upper-left Quater
+                  <br/>
+                  Mars
+                </div>
+
+                <LocationMap lat={40.7128} lng={-74.0060}/>
+              </div>
             </div>
-
-            <Space size="small"/>
-
-            <LocationMap />
         </div> 
       </div>
     );

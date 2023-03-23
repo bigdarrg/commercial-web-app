@@ -28,7 +28,7 @@ export default class GalleryPage extends Component {
             </div>
 
             <div className={[staticFeatures.p, websiteStyle.p].join(' ')}>
-              Here you can have a look through our camera roll of some haircuts we didn't do: 
+              Here you can have a look through our camera roll of our day-to-day highlights.
             </div>
 
             <Gallery />

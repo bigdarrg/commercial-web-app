@@ -12,9 +12,14 @@
 }
 
 .h2 {
-    color: #cccccc; 
+    font-family: 'Raleway',sans-serif;
+
+    color: #e2e1e1; 
 
     font-size: 2.79vw;
+    font-weight: 650;
+
+    text-transform: uppercase;
 
     text-align: left;
 
@@ -22,7 +27,9 @@
 }
 
 .p {
-    color: #cccccc;
+    font-family: 'Raleway', serif;
+
+    color: #e2e1e1;
 
     font-size: 1.736vw;
 
@@ -87,7 +94,7 @@
 
 /*Social panel component*/
 .socialsPanel {
-    color: rgb(47, 48, 53);
+    color: rgb(151, 151, 151);
 
     border-color: rgb(47, 48, 53);
     
@@ -108,17 +115,6 @@
     box-shadow: 1px 1px 8px #000;
 }
 
-.bookingText {
-    color: rgb(80, 80, 80);
-
-    font-family: 'Raleway',sans-serif; 
-    font-size: 1.426vw; 
-    font-weight: 795;  
-    letter-spacing: 0.15cm;
-    line-height: 10%;
-
-    text-align: center;
-}
 
 /*Time select component*/
 .timeSelectBox {
