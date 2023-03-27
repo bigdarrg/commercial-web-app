@@ -11,6 +11,8 @@ import configData from '../config/barber-site.config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
+
+import classicStyle from "../css-modules/classic.module.css";
 import modernStyle from "../css-modules/modern.module.css";
 
 //Importing gallery images
@@ -22,7 +24,9 @@ const galleryImages = importAllImages(require.context('../media/gallery-images/'
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
-  if (configData.STYLE === "modern"){
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
     return modernStyle
   }
 })();
@@ -34,11 +38,11 @@ function generateCarouselJSX() {
     const imageName = imagePath.slice(14, imagePath.indexOf("."));
 
     return (
-        <Carousel.Item className={staticFeatures.galleryImage}>
+        <Carousel.Item>
           <img className={staticFeatures.galleryImage} src={image} alt="First slide"/>
       
           <Carousel.Caption>
-            <h1 className={websiteStyle.h1}>{imageName}</h1>
+            <div className={[websiteStyle.pageTitle, staticFeatures.textCentered].join(' ')}>{imageName}</div>
           </Carousel.Caption>
       </Carousel.Item>
     )

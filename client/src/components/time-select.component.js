@@ -13,6 +13,18 @@ import configData from '../config/barber-site.config.json';
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
 
+import classicStyle from "../css-modules/classic.module.css";
+import modernStyle from "../css-modules/modern.module.css";
+
+//Determine website styling module from the config file
+const websiteStyle = (function() {
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
+    return modernStyle
+  }
+})();
+
 //Useful functions
 function formatIntToTwoDigits(number){
   let twoDigit = number.toLocaleString('en-US', {
@@ -93,7 +105,7 @@ function generateAvailableTimesJSX(availableTimes, availableTimeButtonFunction){
     var JSXArray = [];
 
     availableTimes.forEach((time) => {JSXArray.push(
-      <button onClick={() => availableTimeButtonFunction([time[0], time[1]])} className={staticFeatures.availableTimeButton}>
+      <button onClick={() => availableTimeButtonFunction([time[0], time[1]])} className={[staticFeatures.availableTimeButton, websiteStyle.availableTimeButton].join(' ')}>
         <p>{formatIntToTwoDigits(time[0])}.{formatIntToTwoDigits(time[1])}
         {(time[0] < 12) &&
         "am"

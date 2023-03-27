@@ -17,11 +17,15 @@ import configData from '../config/barber-site.config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
+
+import classicStyle from "../css-modules/classic.module.css";
 import modernStyle from "../css-modules/modern.module.css";
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
-  if (configData.STYLE === "modern"){
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
     return modernStyle
   }
 })();

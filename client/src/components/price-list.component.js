@@ -7,8 +7,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Loading configuration
 import configData from '../config/barber-site.config.json';
 
-//Loading styling module
+//Loading styling modules
 import staticFeatures from "../css-modules/static.module.css";
+
+import classicStyle from "../css-modules/classic.module.css";
+import modernStyle from "../css-modules/modern.module.css";
+
+//Determine website styling module from the config file
+const websiteStyle = (function() {
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
+    return modernStyle
+  }
+})();
 
 const servicesAndPrices = Object.keys(configData.PRICES).map((service) => [service, configData.PRICES[service]]);
 
@@ -16,7 +28,7 @@ const servicesAndPrices = Object.keys(configData.PRICES).map((service) => [servi
 function generatePriceListJSX(selectFunction){
     const priceListJSX = servicesAndPrices.map((serviceAndPrice) => {
         return (
-            <div className={staticFeatures.priceListItem}>
+            <div className={[staticFeatures.priceListItem, websiteStyle.priceListItem].join(' ')}>
                 <div>
                     <button className={staticFeatures.priceListButton} onClick={() => selectFunction(serviceAndPrice[0])}>{serviceAndPrice[0]}</button>
                 </div>

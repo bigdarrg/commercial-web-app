@@ -6,6 +6,8 @@ import configData from '../config/barber-site.config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
+
+import classicStyle from "../css-modules/classic.module.css";
 import modernStyle from "../css-modules/modern.module.css";
 
 //Importing components
@@ -14,7 +16,9 @@ import Space from './spacing.component';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
-  if (configData.STYLE === "modern"){
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
     return modernStyle
   }
 })();
@@ -22,9 +26,9 @@ const websiteStyle = (function() {
 export default class Bookings extends Component {
   render() {
     return (
-      <div className={staticFeatures.pageStyling3}>
+      <div className={websiteStyle.pageStyling}>
         <div className={staticFeatures.pageContainer}>
-            <div className={websiteStyle.h2}>
+            <div className={[staticFeatures.pageTitle, websiteStyle.pageTitle].join(' ')}>
               Book with us.
             </div>
 

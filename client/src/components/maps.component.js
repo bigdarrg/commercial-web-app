@@ -12,12 +12,12 @@ import staticFeatures from "../css-modules/static.module.css";
 export class LocationMap extends Component {
   render() {
     const mapSize = {
-      width: "30vw",
+      width: "40vw",
       height: "40vh",
     };
 
     const containerStyle = {
-      maxWidth: "30vw",
+      maxWidth: "40vw",
       height: "40vh"
      };
     

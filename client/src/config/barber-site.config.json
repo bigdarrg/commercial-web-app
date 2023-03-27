@@ -1,5 +1,5 @@
 {
-    "TITLE": "World's Best Barbers",
+    "TITLE": "The Master Barber",
     "DESCRIPTION" : "The best barber's in the world.",
     "STYLE" : "modern",
     "OPENINGTIMES": {
@@ -17,7 +17,7 @@
         "Skin Fade": 16,
         "Standard Mens with Beard": 15,
         "Skin Fade with Beard": 18,
-        "Styled": 5
+        "Styled and skinfade for molly": 5
     }, 
     "CURRENCY": "£",
     "INSTAGRAM": "www.instagram.com",

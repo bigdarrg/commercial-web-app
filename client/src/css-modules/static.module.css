@@ -1,97 +1,142 @@
+/*This styling module controls all page layout and sizing styling, also fixed styling features.*/
 html, body {
     margin: 0;
     padding: 0;
  }
 
-/*Backgound images*/
-.pageStyling1 {
-    background-image: url('../media/main-background.jpg'); 
-    background-size: cover;
+html:has(.parallaxHeader), body:has(.parallaxHeader) {
+    overflow: hidden;
 }
 
-.pageStyling2 {
-    background-image: url('../media/second-background.jpg'); 
-    background-size: cover;
+/*Text fixed styling, positioning, size and layout*/
+.mainTitle {
+    padding: 7.5vh;
 }
 
-.pageStyling3 {
-    background-image: url('../media/third-background.jpg'); 
-    background-size: cover;
-}
-
-.pageStyling4 {
-    background-image: url('../media/forth-background.jpg'); 
-    background-size: cover;
-}
-
-/*Menu, header and footer fixed styling, positioning, size and layout*/
-.titleRight {
-    margin: auto;
-
-    position: fixed;
-    right: 0;
-    z-index: 1;
-
-    padding-right: 3.5vw;
-    padding-top: 5vh;
-    
-    width: 100vh;
-
-    text-align: right;
-
-    
-}
-
-.titleLeft {
-    margin: auto;
-
-    position: fixed;
-    left: 0;
-    z-index: 1;
-
-    padding-left: 3.5vw;
-    padding-top: 5vh;
-    
-    width: 100vh;
-
-    text-align: left;
+.pageTitle {
+    margin-left: 5%;
 }
 
 .p {
     margin-bottom: 5vh;
+
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 .textCentered {
     text-align: center;
 }
 
+/*Useful image styling*/
+.imageLarge {
+    width: 80%;
+    height: 100%;
+
+    margin-right: 10%;
+    margin-left: 10%;
+
+    box-shadow: 1px 1px 8px #000;
+}
+
+
+/*Menu, header and footer fixed styling, positioning, size and layout*/
+.mainContainer:has(.parallaxHeader) { /*Keith Clark parralax pure css solution*/
+    height: 100vh;
+    max-height: 100%;
+    
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    perspective: 1px;
+    
+    perspective-origin: center top;
+
+    transform-style: preserve-3d;
+
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.header {
+    padding-left: 3.5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    
+    width: 100vw;
+}
+
+.parallaxHeader {
+    height: 30vh;
+    background: url('../media/main-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    vertical-align: top;
+    transform-origin: center top;
+    transform: translateZ(-1px) scale(2);
+
+}
+
 .pageContainer {
-    background-color: #00000050;
-
     padding-bottom: 10vh;
-    padding-top: 15vh;
+    padding-top: 5vh;
 
-    width: 75vw;
+    width: 100%;
     height: 100%;
 
     min-height: 100vh;
 }
 
-.menuLeftLayout {
+.mainContainer:has(.parallaxHeader) > .pageLayout {
+    max-height: 100%;
+    background: transparent;
+    transform: translateZ(0);
+}
+
+.pageLayout:has(.stackMenu) {
     display: grid;
     grid-template-columns: 1fr 3fr;
+
+    width: 100vw;
+}
+
+.pageLayout:has(.stackMenuRight) {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    width: 100vw;
+}
+
+.pageLayout:has(.headerMenu) {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 100vw;
+}
+
+.stackMenu { /*Stack of buttons menu*/
+    width: 25vw;
+}
+
+.stackMenuRight {
+    order: 1;
+    width: 25vw;
+}
+
+.headerMenu { /*Menu bar across top*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    width: 100vw;
+    height: 13.5vh;
 }
 
 .menuButton {
-    width: 25vw;
+    width: 100%;
     height: 15vh;
 
     padding-bottom: 5px;
-}
-
-.menuTop {
-    width: 25vw;
-    height: 15vh;
 }
 
 .footer {
@@ -115,6 +160,19 @@ html, body {
     height: 30vh;
 }
 
+/*Useful layouts*/
+.twoPieceContainer { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-width: 50%;
+
+    width: 100%;
+}
+
+.centerContent {
+    margin: auto;
+}
+
 /*Awards display component fixed styling, positioning and layout.*/
 .awardsContainer {
     width: 100%;
@@ -125,6 +183,8 @@ html, body {
 
     margin-top: 2vw;
     margin-bottom: 2vw;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .awardsIconContainer {
@@ -143,11 +203,11 @@ html, body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    width: 99%;
+    width: 90%;
     height: 100%;
 
-    margin-left: 0.5%;
-    margin-right: 0.5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .socialSlot {
@@ -164,10 +224,6 @@ html, body {
     border-radius: 0.4vw;
 }
 
-.socialButton:hover {
-    border: none;
-}
-
 .socialIcon {
     width: 20%;
     height: 80%;
@@ -177,190 +233,53 @@ html, body {
 
 /*Booking component fixed styling, positioning, size and layout*/
 .bookingContainer { 
-    width: 70vw;
+    width: 80%;
 
     padding: 2vh;
 
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
+    margin-left: 10%;
+    margin-right: 10%;
 
     font-weight: 750;
     font-size: 1.4vw;
-}
-
-.bookingButton {
-    width: 68vw;
-    height: 10vh;
-
-    margin-top: 2vw;
 }
 
 .completeBookingContainer {
     display: grid;
     grid-template-columns: 1fr;
 
-    width: 68vw;
+    width: 100%;
     height: 15vh;
-
-    margin-top: 1vw;
 }
 
-/*Date select component fixed styling, positioning, size and layout*/
-.dateSelectContainer {
-    display: grid;
-    grid-template-columns: 1fr;
+/*Section completed component*/
+.sectionCompleted {
+    width: 100%;
+    height: 10vh;
 
-    width: 68vw;
-    height: 40vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+
+    box-shadow: 1px 1px 8px #000;
 
     margin-bottom: 1vw;
-    margin-top: 5vw;
+
+    border-radius: 2vh;
 }
 
-.monthSelectorContainer {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+.sectionCompletedIcon {
+    width: 60%;
+    height: 50%;
 
-    width: 48vw;
-    height: 4vh;
-    
-    margin-left: auto;
-    margin-right: auto;
-
-    text-align: center;
+    transform: translate(7.5%, 7.5%);
 }
 
-.dayGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    width: 100%;
-    height: 100%;
+.sectionCompletedCheck {
+    color: rgb(3, 214, 3);
 }
 
-.dayButton {
-    width: 100%; 
-    height: 100%;
-
-    background-color: transparent;
-    border: none;
-
-    font-size: 1.5vw;
-}
-
-.dayButton:enabled:hover {
-    box-shadow: 1px 1px 8px #000;
-    border-radius: 10vw;
-
-    background-color: #00000050;
-}
-
-.dayButton:focus {
-    box-shadow: 1px 1px 8px #000;
-    border-radius: 10vw;
-
-    background-color: #00000050;
-}
-
-.monthArrowButton {
-    background: transparent;
-    border: none;
-
-    box-shadow: 1px 1px 8px #000;
-}
-
-
-/*Time select component fixed styling, positioning, size and layout*/
-.timeSelectContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-
-    width: 69vw;
-    height: 60vh;
-}
-
-.availableTimesContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    margin-top: 2vw;
-
-    width: 69vw;
-    height: 60vh;
-}
-
-.availableTimeButton {
-    width: 9.15vw; 
-    height: 5.71vh;
-
-    background-color: transparent;
-    border-radius: 2vw;
-
-    font-size: 1vw;
-
-    margin: 0.1vw;
-
-    text-align: center;
-}
-
-.availableTimeButton:focus {
-    background-color: #00000050;
-}
-
-.availableTimeButton:hover {
-    background-color: #00000050;
-}
-
-/*Info form component fixed styling, positioning, size and layout*/
-.infoFormContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.infoFormLabel {
-    width: 50%;
-
+.sectionCompletedInfo {
     font-weight: 400;
-
-    margin: auto;
-}
-
-.infoFormInput {
-    width: 50%;
-
-    margin: auto;
-}
-
-/*Gallery component fixed styling, positioning, size and layout*/
-.galleryContainer { 
-    width: 70vw;
-    height: 70vh;
-
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-
-    border-radius: 8px;
-    box-shadow: 1px 1px 8px #000;
-}
-
-.galleryImage {
-    width: 70vw;
-    height: 70vh;
-}
-
-.carousel {
-    width: 70vw;
-    height: 70vh;
-}
-
-.carouselItem {
-    width: 70vw;
-    height: 70vh;
 }
 
 /*Price list component fixed styling, positioning, size and layout*/
@@ -405,32 +324,160 @@ html, body {
     border: none;
 }
 
-/*Section completed component*/
-.sectionCompleted {
-    width: 68vw;
-    height: 10vh;
 
+/*Date select component fixed styling, positioning, size and layout*/
+.monthSelectorContainer {
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
+
+    width: 100%;
+    height: 4vh;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.monthArrowButton {
+    background: transparent;
+    border: none;
 
     box-shadow: 1px 1px 8px #000;
+}
+
+.dateSelectContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 100%;
+    height: 40vh;
 
     margin-bottom: 1vw;
+    margin-top: 5vw;
 }
 
-.sectionCompletedIcon {
-    width: 60%;
-    height: 60%;
+.dayGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    transform: translate(7.5%, 7.5%);
+    width: 100%;
+    height: 100%;
 }
 
-.sectionCompletedCheck {
-    color: green;
+.dayButton {
+    width: 100%; 
+    height: 100%;
+
+    background-color: transparent;
+    border: none;
+
+    font-size: 1.5vw;
 }
 
-.sectionCompletedInfo {
+.dayButton:enabled:hover {
+    box-shadow: 1px 1px 8px #000;
+    border-radius: 10vw;
+
+    background-color: #00000050;
+}
+
+.dayButton:focus {
+    box-shadow: 1px 1px 8px #000;
+    border-radius: 10vw;
+
+    background-color: #00000050;
+}
+
+
+/*Time select component fixed styling, positioning, size and layout*/
+.timeSelectContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+
+    width: 100%;
+    height: 60vh;
+}
+
+.availableTimesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    margin-top: 2vw;
+
+    width: 100%;
+    height: 60vh;
+}
+
+.availableTimeButton {
+    width: 100%; 
+    height: 5.71vh;
+
+    background-color: transparent;
+    border-radius: 2vw;
+
+    font-size: 1vw;
+
+    margin: 0.1vw;
+
+    text-align: center;
+}
+
+.availableTimeButton:focus {
+    background-color: #00000050;
+}
+
+.availableTimeButton:hover {
+    background-color: #00000050;
+}
+
+/*Info form component fixed styling, positioning, size and layout*/
+.infoFormContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.infoFormLabel {
+    width: 50%;
+
     font-weight: 400;
+
+    margin: auto;
+}
+
+.infoFormInput {
+    width: 50%;
+
+    margin: auto;
+}
+
+/*Gallery component fixed styling, positioning, size and layout*/
+.galleryContainer { 
+    width: 90%;
+    height: 70vh;
+    
+    margin: auto;
+
+    text-align: center;
+
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px #000;
+}
+
+.galleryImage {
+    width: 100%;
+    height: 70vh;
+}
+
+.carousel {
+    width: 100%;
+    height: 70vh;
+
+    
+    text-align: center;
 }
 
 
@@ -441,7 +488,7 @@ html, body {
     grid-template-columns: 1fr 1fr;
 }
 .mapContainer {
-    width: 30vw;
+    width: 40vw;
     height: 40vh;
 
     box-shadow: 1px 1px 30px #000;

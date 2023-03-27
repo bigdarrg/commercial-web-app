@@ -11,10 +11,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 //Loading configuration
-//import configData from '../config/barber-site.config.json';
+import configData from '../config/barber-site.config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
+
+import classicStyle from "../css-modules/classic.module.css";
+import modernStyle from "../css-modules/modern.module.css";
+
+//Determine website styling module from the config file
+const websiteStyle = (function() {
+  if (configData.STYLE === "classic"){
+    return classicStyle
+  }else if (configData.STYLE === "modern"){
+    return modernStyle
+  }
+})();
 
 //This is needed data for the date selector
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -45,24 +57,24 @@ function generateDaySelectJSX(monthIndex, dayButtonFunction) {
     //monthIndex is used to determine whether a button is active or not
     if (daysInEachMonth[monthIndex] === 28){
       if (day >= dayIndex && day < 29){
-        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
       else{
-        JSXforDayArray.push(<button key={day} disabled className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} disabled className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
     }else if (daysInEachMonth[monthIndex] === 30){
       if (day >= dayIndex && day < 31){
-        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
       else{
-        JSXforDayArray.push(<button key={day} disabled className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} disabled className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
     }else if (daysInEachMonth[monthIndex] === 31){
       if (day >= dayIndex && day < 32){
-        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} onClick={() => dayButtonFunction(day)} className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
       else{
-        JSXforDayArray.push(<button key={day} disabled className={staticFeatures.dayButton} type="button">{day}</button>);
+        JSXforDayArray.push(<button key={day} disabled className={[staticFeatures.dayButton, websiteStyle.dayButton].join(' ')} type="button">{day}</button>);
       }
     }
   }
@@ -125,13 +137,13 @@ export default class DateSelector extends Component {
     return (
         <div className={staticFeatures.dateSelectContainer}>
           <div className={staticFeatures.monthSelectorContainer}>
-                <button onClick={this.handleLeftArrow} className={staticFeatures.monthArrowButton} type='button'> <FontAwesomeIcon icon={faChevronLeft} /> </button> 
+                <button onClick={this.handleLeftArrow} className={[staticFeatures.monthArrowButton, websiteStyle.monthArrowButton].join(' ')} type='button'> <FontAwesomeIcon icon={faChevronLeft} /> </button> 
 
                 <div>
                   {this.state.month} {this.state.year}
                 </div>
 
-                <button onClick={this.handleRightArrow} className={staticFeatures.monthArrowButton} type='button'> <FontAwesomeIcon icon={faChevronRight} /> </button> 
+                <button onClick={this.handleRightArrow} className={[staticFeatures.monthArrowButton, websiteStyle.monthArrowButton].join(' ')} type='button'> <FontAwesomeIcon icon={faChevronRight} /> </button> 
             </div>
 
             <div className={staticFeatures.dayGrid}>
