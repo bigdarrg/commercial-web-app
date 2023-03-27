@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 //Loading configuration
 import configData from '../config/barber-site.config.json';
 
@@ -12,8 +15,6 @@ import modernStyle from "../css-modules/modern.module.css";
 
 //Loading all components
 import Space from './spacing.component';;
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
