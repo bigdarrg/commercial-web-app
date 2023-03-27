@@ -11,8 +11,7 @@ import classicStyle from "../css-modules/classic.module.css";
 import modernStyle from "../css-modules/modern.module.css";
 
 //Loading all components
-import Space from './spacing.component';
-import Socials from './social-media-panel.component';
+import Space from './spacing.component';;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard, faPhone } from '@fortawesome/free-solid-svg-icons';
 

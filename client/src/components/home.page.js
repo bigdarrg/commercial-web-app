@@ -54,7 +54,7 @@ export default class Home extends Component {
                 Please explore the website to find out more information about what you'll never have...
               </div>
 
-              <img className={staticFeatures.imageLarge} src={homeImage}/>
+              <img className={staticFeatures.imageLarge} src={homeImage} alt={"HAIR CUT"}/>
 
             </div>
 
