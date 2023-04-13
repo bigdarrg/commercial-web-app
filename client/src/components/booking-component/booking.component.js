@@ -107,6 +107,8 @@ export default class Booking extends Component {
       email: this.state.userInfo.email,
       telephone: this.state.userInfo.telephone
     })
+
+    window.location.href = "/thanks";
   }
 
   serviceUpdated(serviceSelected){

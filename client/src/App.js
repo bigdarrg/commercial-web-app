@@ -19,13 +19,11 @@ import Bookings from "./components/pages/bookings.page";
 import GalleryPage from "./components/pages/gallery.page";
 import ContactUs from "./components/pages/contact-us.page";
 import Socials from "./components/social-media-panel.component";
+import Thanks from "./components/pages/thanks.page";
 
 //Importing styling resources
 import { faBook, faContactCard, faHome, faImage, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-//Importing fonts
-import "@fontsource/space-grotesk";
 
 //Determine website styling
 const websiteStyle = (function() {
@@ -126,6 +124,7 @@ function App() {
               <Route path="/bookings" element={<Bookings/>}/>
               <Route path="/gallery" element={<GalleryPage/>}/>
               <Route path="/contact" element={<ContactUs/>}/>
+              <Route path="/thanks" element={<Thanks/>}/>
             </Routes>
           </div>
       </div>
