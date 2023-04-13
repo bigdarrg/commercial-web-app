@@ -1,7 +1,11 @@
 {
     "TITLE": "The Master Barber",
-    "DESCRIPTION" : "The best barber's in the world.",
-    "STYLE" : "modern",
+    "DESCRIPTION": "This is the offical website of the world's top barbers. Here at the world's best barbers we do our best to ensure that all our trims are top notch.",
+    "HOUSEANDSTREET": "23 Bio-life Avenue",
+    "POSTCODE": "N0T4P05TC0D3",
+    "PROVINCE": "Upper-left Quater",
+    "COUNTRY": "Mars",
+
     "OPENINGTIMES": {
         "MONDAY": "09:00-17:30",
         "TUESDAY": "09:00-17:30",
@@ -16,11 +20,27 @@
         "Standard Boys": 8,
         "Skin Fade": 16,
         "Standard Mens with Beard": 15,
-        "Skin Fade with Beard": 18,
-        "Styled and skinfade for molly": 5
+        "Skin Fade with Beard": 18
     }, 
     "CURRENCY": "£",
+
     "INSTAGRAM": "www.instagram.com",
     "FACEBOOK": "www.facebook.com",
-    "TWITTER": "www.twitter.com"
+    "TWITTER": "www.twitter.com",
+    "TELEPHONE": "07123456789",
+    "EMAIL": "worldsbestbarbers@barber.co.uk",
+
+    "HOMEPAGETEXT": "We have been in the barber's game for as long as this project has been standing. We specialise in making sure you believe that we would in fact give you the best trim you've ever had, but in reality, you can never get one of them!",
+    "HOMEPAGETEXT2": "Please explore the website to find out more information about what you'll never have...",
+    "ABOUTUSTEXT": "We started back in the day when the developer ran the npm create-react-app command. Since then it's been nothing but no business at all, it has been non-non-stop. We are located in a discrete location, one which you'll never actually come to, so it'll seem like we exist.",
+    "GALLERYTEXT": "Here you can have a look through our camera roll of our day-to-day highlights.",
+    "CONTACTUSTEXT": "You can contact us through any of these means, or through our social media (links in page footer).",
+
+    "STYLE" : "modern",
+    "MENUPOSITION": "header",
+    "HEADERTYPE": "parallax",
+
+    "HOMELAYOUT": "large",
+    "ABOUTUSLAYOUT": "descfirst",
+    "CONTACTUSLAYOUT": "descfirst"
 }

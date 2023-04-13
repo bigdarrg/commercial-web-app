@@ -6,14 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Importing bootstrap components
 import Carousel from 'react-bootstrap/Carousel'
 
-//Loading configuration
-import configData from '../config/barber-site.config.json';
-
-//Loading all styling modules
+//Loading all styling module
 import staticFeatures from "../css-modules/static.module.css";
-
-import classicStyle from "../css-modules/classic.module.css";
-import modernStyle from "../css-modules/modern.module.css";
 
 //Importing gallery images
 function importAllImages(importFunction) {
@@ -22,29 +16,14 @@ function importAllImages(importFunction) {
 
 const galleryImages = importAllImages(require.context('../media/gallery-images/', false, /\.(png|jpe?g|svg)$/));
 
-//Determine website styling module from the config file
-const websiteStyle = (function() {
-  if (configData.STYLE === "classic"){
-    return classicStyle
-  }else if (configData.STYLE === "modern"){
-    return modernStyle
-  }
-})();
-
 //Generate JSX for carousel items
 function generateCarouselJSX() {
   const carouselJSX = galleryImages.map((image) => {
-    const imagePath = String(image)
-    const imageName = imagePath.slice(14, imagePath.indexOf("."));
 
     return (
         <Carousel.Item>
-          <img className={staticFeatures.galleryImage} src={image} alt="First slide"/>
-      
-          <Carousel.Caption>
-            <div className={[websiteStyle.pageTitle, staticFeatures.textCentered].join(' ')}>{imageName}</div>
-          </Carousel.Caption>
-      </Carousel.Item>
+          <img className={staticFeatures.galleryImage} src={image} alt="GALLERY"/>
+        </Carousel.Item>
     )
   });
 

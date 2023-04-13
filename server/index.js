@@ -1,5 +1,6 @@
 //Loading modules
 const express = require('express');
+const path = require('path');
 //const cors = require('cors');
 //const mongooseModule = require('mongoose');
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 5000;
 //Adding middleware
 //server.use(cors());
 server.use(express.json());
+server.use(express.static(path.join(__dirname + "public")));
 
 //Connecting to uri where our database is stored
 //const uri = process.env.ATLAS_URI;

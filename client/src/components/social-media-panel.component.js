@@ -5,24 +5,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Loading configuration
 import configData from '../config/barber-site.config.json';
 
-//Loading Font Awesome
+//Loading icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons'
 
 //Importing styling modules
 import staticFeatures from "../css-modules/static.module.css";
 
-import classicStyle from "../css-modules/classic.module.css";
+import cleanStyle from "../css-modules/clean.module.css";
 import modernStyle from "../css-modules/modern.module.css";
+import rusticStyle from "../css-modules/rustic.module.css";
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
-    if (configData.STYLE === "classic"){
-      return classicStyle
+    if (configData.STYLE === "clean"){
+      return cleanStyle
     }else if (configData.STYLE === "modern"){
       return modernStyle 
+    }else if (configData.STYLE === "rustic"){
+      return rusticStyle
     }
-  })();
+ })();
 
 export default class Socials extends Component {
   render() {

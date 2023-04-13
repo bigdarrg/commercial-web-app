@@ -1,4 +1,6 @@
 /*This styling module controls all page layout and sizing styling, also fixed styling features.*/
+/*These can be overidden by using the !important tag in a styling module. NOTE: this may cause unforseen issues with other components of your site.*/
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,17 +10,44 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     overflow: hidden;
 }
 
-/*Text fixed styling, positioning, size and layout*/
+html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
+    overflow-x: hidden;
+
+    background-color: gray;
+}
+
+/*Text template standard sizing and positioning. */
 .mainTitle {
     padding: 7.5vh;
 }
 
 .pageTitle {
-    margin-left: 5%;
+    grid-area: title;
+
+    width: 100%;
+    height: 100%;
+
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 2.5vh;
 }
 
 .p {
-    margin-bottom: 5vh;
+    grid-area: description;
+
+    width: 100%;
+    height: 100%;
+
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 5vh;
+}
+
+.infoBox {
+    grid-area: infoBox;
+
+    height: fit-content;
+    max-width: fit-content;
 
     margin-left: 5vw;
     margin-right: 5vw;
@@ -29,14 +58,77 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 }
 
 /*Useful image styling*/
-.imageLarge {
-    width: 80%;
+.imageBox {
+    grid-area: image;
+
+    width: 100%;
     height: 100%;
 
-    margin-right: 10%;
-    margin-left: 10%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin: auto;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
 
     box-shadow: 1px 1px 8px #000;
+}
+
+/*Page layouts*/
+.pageLayout1 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "description image"
+                         "component component";
+    grid-template-rows: max-content;
+}
+
+.pageLayout2 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "description description"
+                         "infoBox component";
+    grid-template-rows: max-content;
+}
+
+.pageLayout3 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "component component";
+    grid-template-rows: max-content;
+}
+
+.pageLayout4 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "description description"
+                         "component component";
+    grid-template-rows: max-content;
+}
+
+.pageLayout5 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "description description"
+                         "image image"
+                         "component component";
+    grid-template-rows: max-content;
+}
+
+.pageLayout6 {
+    display: grid;
+
+    grid-template-areas: "title title"
+                         "infoBox component"
+                         "description description";
+    grid-template-rows: max-content;
 }
 
 
@@ -77,6 +169,45 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     transform: translateZ(-1px) scale(2);
 
 }
+  
+.fullscreenHeader {
+    position: fixed;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: gray;
+
+    font-weight: bold;
+    text-align: center;
+   
+    transition: 0.85s;
+    transition-delay: 0.2s;
+}
+
+.minimisedFullscreenHeader {
+    height: 15vh;
+
+    background-color: #00000030;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+}
+
+.fullscreenHeaderTitle {
+    margin-top: 40vh;
+
+    transition: 0.85s;
+    transition-delay: 0.2s;
+}
+
+.fullscreenHeaderTitle:hover {
+    font-size: 5vw;
+}
+
+.fullscreenHeader.minimisedFullscreenHeader > .fullscreenHeaderTitle {
+    margin-top: 0;
+    padding-top: 0;
+}
 
 .pageContainer {
     padding-bottom: 10vh;
@@ -88,27 +219,31 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     min-height: 100vh;
 }
 
-.mainContainer:has(.parallaxHeader) > .pageLayout {
+.mainContainer:has(.parallaxHeader) > .appContainer {
     max-height: 100%;
     background: transparent;
     transform: translateZ(0);
 }
 
-.pageLayout:has(.stackMenu) {
+.fullscreenHeader + .appContainer{
+    padding-top: 15vh;
+}
+
+.appContainer:has(.stackMenu) {
     display: grid;
     grid-template-columns: 1fr 3fr;
 
     width: 100vw;
 }
 
-.pageLayout:has(.stackMenuRight) {
+.appContainer:has(.stackMenuRight) {
     display: grid;
     grid-template-columns: 3fr 1fr;
 
     width: 100vw;
 }
 
-.pageLayout:has(.headerMenu) {
+.appContainer:has(.headerMenu) {
     display: grid;
     grid-template-columns: 1fr;
 
@@ -161,28 +296,22 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 }
 
 /*Useful layouts*/
-.twoPieceContainer { 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-width: 50%;
-
-    width: 100%;
-}
-
 .centerContent {
     margin: auto;
 }
 
 /*Awards display component fixed styling, positioning and layout.*/
 .awardsContainer {
+    grid-area: component;
+
     width: 100%;
     height: 30vh;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-top: 10vh;
+
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -200,6 +329,8 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 
 /*Social media panel component fixed styling, positioning and layout.*/
 .socialsPanel {
+    grid-area: component;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
@@ -233,12 +364,16 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 
 /*Booking component fixed styling, positioning, size and layout*/
 .bookingContainer { 
+    grid-area: component;
+
     width: 80%;
+    height: fit-content;
 
     padding: 2vh;
 
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 10vh;
 
     font-weight: 750;
     font-size: 1.4vw;
@@ -260,7 +395,7 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     display: grid;
     grid-template-columns: 1fr 3fr 2fr;
 
-    box-shadow: 1px 1px 8px #000;
+    box-shadow: 1px 1px 4px #000;
 
     margin-bottom: 1vw;
 
@@ -292,7 +427,7 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     font-size: 1.4vw;
     font-weight: 400;
     
-    box-shadow: 1px 1px 8px #000;
+    box-shadow: 1px 1px 4px #000;
 }
 
 .priceListItem {
@@ -303,13 +438,15 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 .priceListItem:hover {
     background-color: #00000050;
 
-    box-shadow: 1px 1px 8px #000;
+    box-shadow: 1px 1px 4px #000;
 }
 
 .priceListItem:focus {
     background-color: #00000050;
 
-    box-shadow: 1px 1px 8px #000;
+    outline: none;
+
+    box-shadow: 1px 1px 4px #000;
 }
 
 .priceTextBox {
@@ -343,7 +480,11 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     background: transparent;
     border: none;
 
-    box-shadow: 1px 1px 8px #000;
+    box-shadow: 1px 1px 4px #000;
+}
+
+.monthArrowButton:focus {
+    outline: none;
 }
 
 .dateSelectContainer {
@@ -376,15 +517,17 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 }
 
 .dayButton:enabled:hover {
-    box-shadow: 1px 1px 8px #000;
-    border-radius: 10vw;
+    box-shadow: 1px 1px 4px #000;
+
+    outline: none;
 
     background-color: #00000050;
 }
 
 .dayButton:focus {
-    box-shadow: 1px 1px 8px #000;
-    border-radius: 10vw;
+    box-shadow: 1px 1px 4px #000;
+
+    outline: none;
 
     background-color: #00000050;
 }
@@ -399,17 +542,20 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     margin-bottom: 2vw;
 
     width: 100%;
-    height: 60vh;
+    height: fit-content;
 }
 
 .availableTimesContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
+    row-gap: 2vh;
+    column-gap: 0.5vh;
+
     margin-top: 2vw;
 
     width: 100%;
-    height: 60vh;
+    height: fit-content;
 }
 
 .availableTimeButton {
@@ -428,13 +574,15 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 
 .availableTimeButton:focus {
     background-color: #00000050;
+
+    outline: none;
 }
 
 .availableTimeButton:hover {
     background-color: #00000050;
 }
 
-/*Info form component fixed styling, positioning, size and layout*/
+/*Info & contact form components fixed styling, positioning, size and layout*/
 .infoFormContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -454,8 +602,31 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
     margin: auto;
 }
 
+.contactFormContainer {
+    grid-area: component;
+
+    width: 60vw;
+    height: 100%;
+
+    margin-right: 5vw;
+
+    padding: 2vh;
+}
+
+.contactFormLabel {
+    width: 50%;
+
+    font-weight: 500;
+}
+
+.contactFormQuery {
+    height: 10vh;
+}
+
 /*Gallery component fixed styling, positioning, size and layout*/
 .galleryContainer { 
+    grid-area: component;
+
     width: 90%;
     height: 70vh;
     
@@ -482,13 +653,10 @@ html:has(.parallaxHeader), body:has(.parallaxHeader) {
 
 
 /*Maps component fixed styling, positioning and size*/
-.addressMapContainer {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-}
 .mapContainer {
-    width: 40vw;
+    grid-area: component;
+
+    width: 60vw;
     height: 40vh;
 
     box-shadow: 1px 1px 30px #000;

@@ -1,5 +1,4 @@
-//The maps component renders a google map widget displaying the location passed through the lng and lat properties.
-
+//The maps component renders a google map widget displaying the location passed through the lng and lat properties. Fixed size of 40vw/vh.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,12 +11,12 @@ import staticFeatures from "../css-modules/static.module.css";
 export class LocationMap extends Component {
   render() {
     const mapSize = {
-      width: "40vw",
+      width: "60vw",
       height: "40vh",
     };
 
     const containerStyle = {
-      maxWidth: "40vw",
+      maxWidth: "60vw",
       height: "40vh"
      };
     
