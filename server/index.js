@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 //Adding middleware
 //server.use(cors());
 server.use(express.json());
-server.use(express.static(path.join(__dirname + "/../client/build")));
+server.use(express.static(path.join(__dirname + "/public")));
 
 //Connecting to uri where our database is stored
 //const uri = process.env.ATLAS_URI;
