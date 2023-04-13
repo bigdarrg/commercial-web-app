@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 server.use(cors());
 server.use(express.json());
 
-//Runs build placed in public dir
+//Runs build placed in build dir
 server.use(express.static(path.join(__dirname + "/build")));
 
 //Opening connection to the database
