@@ -18,8 +18,10 @@ import AboutUs from "./components/pages/about-us.page";
 import Bookings from "./components/pages/bookings.page";
 import GalleryPage from "./components/pages/gallery.page";
 import ContactUs from "./components/pages/contact-us.page";
-import Socials from "./components/social-media-panel.component";
 import Thanks from "./components/pages/thanks.page";
+
+import Socials from "./components/social-media-panel.component";
+
 
 //Importing styling resources
 import { faBook, faContactCard, faHome, faImage, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
