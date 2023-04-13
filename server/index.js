@@ -1,8 +1,8 @@
 //Loading modules
 const express = require('express');
 const path = require('path');
-//const cors = require('cors');
-const mongooseModule = require('mongoose');
+const cors = require('cors');
+const mongoose = require('mongoose');
 
 //Having our environment variable in the .env file
 require('dotenv').config();
@@ -12,31 +12,25 @@ const server = express();
 const port = process.env.PORT || 5000;
 
 //Adding middleware
-//server.use(cors());
+server.use(cors());
 server.use(express.json());
+
+//Runs build placed in public dir
 server.use(express.static(path.join(__dirname + "/public")));
 
 //Connecting to uri where our database is stored
 const uri = process.env.ATLAS_URI;
-mongooseModule.connect(uri, {} );
+mongoose.connect(uri, {} );
 
-const connection = mongooseModule.connection; 
+//Opening connection to the database
+const connection = mongoose.connection; 
 connection.once('open', () => { //once connection is open
     console.log("MongoDB database connection established successfully");
 }); 
 
-//When someone goes to our URL/__site__ it will load routes/__site__.js
-//const ingredientsRouter = require('./routes/ingredients');
-//const recipesRouter = require('./routes/recipes');
-//const foodsRouter = require('./routes/foods');
-//const usersRouter = require('./routes/users');
-//const authUserRouter = require('./routes/auth');
-
-//expressServer.use('/load_data', ingredientsRouter); //needs updating
-
-
-//const dietsRouter = require('./routes/diets');
-//expressServer.use('/load_data', dietsRouter); //needs updating
+//Inititalising HTTPS reqs 
+const bookingsRouter = require('./requests/booking-https');
+server.use('/bookings', bookingsRouter);
 
 //Starting the server
 server.listen(port, () => {
