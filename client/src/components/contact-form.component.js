@@ -2,6 +2,7 @@
 // 'submitHandler' prop.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 
 //Loading configuration
 import configData from '../config/barber-site.config.json';
@@ -36,7 +37,7 @@ export default class ContactForm extends Component {
             email: undefined,
             telephone: undefined,
             query: undefined
-        };
+        }; 
     
         this.handleFNameChange = this.handleFNameChange.bind(this);
         this.handleSNameChange = this.handleSNameChange.bind(this);
@@ -70,7 +71,14 @@ export default class ContactForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         
-        this.props.handleSubmit(this.state.fname, this.state.sname, this.state.email, this.state.telephone, this.state.query);
+        axios.post("/emails/send_query", {
+            name: this.state.fname + " " + this.state.sname,
+            email: this.state.email,
+            telephone: this.state.telephone,
+            query: this.state.query
+          })
+      
+        window.location.href = "/#/thanks";
     }
 
     render() {
