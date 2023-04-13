@@ -1,14 +1,14 @@
 //This component is a time selecting widget. Upon selecting a date it will run the function passed as the property selectHandler(hourSelected, minuteSelected).
 
 //It has the properties day and month, the TimeSelector component will show the times appropiate for this date this date in
-//correspondence with the opening hours provided in config data, but by default show all times.
+//correspondence with the opening hours provided in config data, it will also filter out any times already booked.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Loading configuration
 import configData from '../../config/barber-site.config.json';
 
-//Loading all styling modules
+//Loading all styling modules 
 import staticFeatures from "../../css-modules/static.module.css";
 
 import cleanStyle from "../../css-modules/clean.module.css";
@@ -81,46 +81,6 @@ const openHours = (function() {
     return openHours
 })();
 
-
-//---- Current implementation determines using only opening hours from the config file
-function getAvailableTimes(day, month, year) {
-  //Calculate based on opening hours in config file
-  const dateObj = new Date(
-    month + " " + String(formatIntToTwoDigits(day)) + "," + year
-  );
-
-  const dayOfTheWeekIndex = ((dateObj.getDay() + 6) % 7);
-
-  const hoursOpen = openHours[dayOfTheWeekIndex].slice(0, -1);
-
-  var availabilityAll = [];
-
-  hoursOpen.forEach((hour) => {
-    //If date selected is today
-    if((day === currentDateTime.getDate())&&(months.indexOf(month) === currentDateTime.getMonth())){
-      //If hour is current hour
-      if(hour === currentDateTime.getHours()){
-        minutes.forEach((time) => {
-          //If minute is greater than current time
-          if(time > currentDateTime.getMinutes()){
-            availabilityAll.push([hour, time]);
-          }
-        });
-      //If hour is greater than current hour
-      }else if(hour > currentDateTime.getHours()){ 
-        minutes.forEach((time) => {
-          availabilityAll.push([hour, time]);});
-      }
-    }else{
-      minutes.forEach((time) => {
-        availabilityAll.push([hour, time]);});
-    }
-  });
-
-  return availabilityAll;
-}
-
-
 //For generating JSX for time select
 function generateAvailableTimesJSX(availableTimes, availableTimeButtonFunction){
     var JSXArray = [];
@@ -152,7 +112,69 @@ export default class TimeSelector extends Component {
   };
 
   this.handleTimeSelected = this.handleTimeSelected.bind(this);
+  }
 
+  getAvailableTimes(day, month, year) {
+    //Calculate based on opening hours in config file
+    const dateObj = new Date(
+      month + " " + String(formatIntToTwoDigits(day)) + "," + year
+    );
+
+    const dayOfTheWeekIndex = ((dateObj.getDay() + 6) % 7);
+
+    const hoursOpen = openHours[dayOfTheWeekIndex].slice(0, -1);
+
+    var availabilityAll = [];
+
+    hoursOpen.forEach((hour) => {
+      //If date selected is today calculate based on current time 
+      if((day === currentDateTime.getDate())&&(months.indexOf(month) === currentDateTime.getMonth())){
+        //If hour is current hour
+        if(hour === currentDateTime.getHours()){
+          minutes.forEach((time) => {
+            //If minute is greater than current time
+            if(time > currentDateTime.getMinutes()){
+              availabilityAll.push([hour, time]);
+            }
+          });
+        //If hour is greater than current hour
+        }else if(hour > currentDateTime.getHours()){ 
+          minutes.forEach((time) => {
+            availabilityAll.push([hour, time]);});
+        }
+      }else{
+        minutes.forEach((time) => {
+          availabilityAll.push([hour, time]);});
+      }
+    });
+
+    //Exclude times already booked
+    availabilityAll.forEach(time => {
+      //For each booking
+      this.props.bookings.forEach(booking => {
+        //If date on the booking matches
+        if ((formatIntToTwoDigits(day) === booking.date.slice(0, 2)) && (formatIntToTwoDigits(months.indexOf(month) + 1) === booking.date.slice(3, 5))){
+          //If hour on the booking matches
+          if (formatIntToTwoDigits(time[0]) === booking.time.slice(0, 2)){
+            //If minute on the booking matches
+            if (formatIntToTwoDigits(time[1]) === booking.time.slice(3, 5)) {
+              //Remove from available times
+              var indexOfTimeToRemove = (function() {
+                for (var i = 0; i < availabilityAll.length; i++) { //Must use this solution as indexOf() does not support 2D arrays
+                  if ((availabilityAll[i][0] === time[0]) && (availabilityAll[i][1] === time[1])){
+                    return i;
+                  }
+                } 
+              })();
+
+              availabilityAll.splice(indexOfTimeToRemove, 1);
+            }
+          }
+        }
+      });
+    });
+
+    return availabilityAll;
   }
 
   handleTimeSelected(timeSelected) {
@@ -173,7 +195,7 @@ export default class TimeSelector extends Component {
             <div>Slot availability</div>
 
             <div className={staticFeatures.availableTimesContainer}>
-              {generateAvailableTimesJSX(getAvailableTimes(daySelected, monthSelected, currentYear), this.handleTimeSelected)}
+              {generateAvailableTimesJSX(this.getAvailableTimes(daySelected, monthSelected, currentYear), this.handleTimeSelected)}
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 //This is a booking component which is set-up based on the provided config file. 
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 //Importing icons
 import {faCartShopping, faClock, faContactBook} from '@fortawesome/free-solid-svg-icons';
@@ -78,13 +79,34 @@ export default class Booking extends Component {
         serviceSelect: false,
         dateTime: false,
         infoForm: false
-      }
+      },
+
+      bookings: undefined
     };
 
     this.serviceUpdated = this.serviceUpdated.bind(this);
     this.dateUpdated = this.dateUpdated.bind(this);
     this.timeUpdated = this.timeUpdated.bind(this);
     this.infoSubmitted = this.infoSubmitted.bind(this);
+
+    this.bookNow = this.bookNow.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get("/bookings/load_bookings").then(res => {
+      this.setState({bookings: res.data});
+    });
+  }
+
+  bookNow(){
+    axios.post("/bookings/make_booking", {
+      service: this.state.selectedService,
+      date: formatIntToTwoDigits(this.state.selectedDate.day) + "/" + formatIntToTwoDigits(months.indexOf(this.state.selectedDate.month) + 1) + "/" + String(currentDate.getFullYear()),
+      time: formatIntToTwoDigits(this.state.selectedTime.hour) + ":" + formatIntToTwoDigits(this.state.selectedTime.minute),
+      name: this.state.userInfo.fname + " " + this.state.userInfo.sname,
+      email: this.state.userInfo.email,
+      telephone: this.state.userInfo.telephone
+    })
   }
 
   serviceUpdated(serviceSelected){
@@ -162,7 +184,7 @@ export default class Booking extends Component {
         }
 
         {(this.state.sectionCompleted.dateTime === false) && (this.state.sectionCompleted.serviceSelect === true) &&
-          <TimeSelector handleSelect={this.timeUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month}/>
+          <TimeSelector handleSelect={this.timeUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month} bookings={this.state.bookings}/>
         }
         {(this.state.sectionCompleted.dateTime === true) && 
           <SectionCompleted icon={faClock} title={"Date & Time"} info={
@@ -182,7 +204,7 @@ export default class Booking extends Component {
         //If all sections of the form are completed...
           <div className={staticFeatures.completeBookingContainer}>
             <div>Complete your booking </div>
-            <button className={websiteStyle.menuButton}>Book now</button>
+            <button onClick={this.bookNow} className={websiteStyle.menuButton}>Book now</button>
           </div>
         } 
       </div>

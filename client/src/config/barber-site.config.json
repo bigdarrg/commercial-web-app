@@ -40,7 +40,7 @@
     "MENUPOSITION": "header",
     "HEADERTYPE": "parallax",
 
-    "HOMELAYOUT": "large",
+    "HOMELAYOUT": "compact",
     "ABOUTUSLAYOUT": "descfirst",
     "CONTACTUSLAYOUT": "descfirst"
 }
