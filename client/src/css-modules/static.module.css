@@ -1,10 +1,11 @@
 /*This styling module controls all page layout and sizing styling, also fixed styling features.*/
 /*These can be overidden by using the !important tag in a styling module. NOTE: this may cause unforseen issues with other components of your site.*/
-
 html, body {
     margin: 0;
     padding: 0;
  }
+
+/*Document body changes for header types*/
 
 html:has(.parallaxHeader), body:has(.parallaxHeader) {
     overflow: hidden;
@@ -43,6 +44,12 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     padding-bottom: 5vh;
 }
 
+.textCentered {
+    text-align: center;
+}
+
+/*Info box fixed styling, positioning, size and layout*/
+
 .infoBox {
     grid-area: infoBox;
 
@@ -53,11 +60,7 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     margin-right: 5vw;
 }
 
-.textCentered {
-    text-align: center;
-}
-
-/*Useful image styling*/
+/*Image fixed styling, positioning, size and layout*/
 .imageBox {
     grid-area: image;
 
@@ -132,7 +135,75 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
 }
 
 
-/*Menu, header and footer fixed styling, positioning, size and layout*/
+/*Menu, page, header and footer fixed styling, positioning, size and layout*/
+/*Menus*/
+.headerMenu { /*Menu bar across top*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    width: 100vw;
+    height: 13.5vh;
+}
+
+.appContainer:has(.headerMenu) {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 100vw;
+}
+
+.stackMenu { /*Stack of buttons menu*/
+    width: 25vw;
+}
+
+.stackMenuRight {
+    order: 1;
+    width: 25vw;
+}
+
+.appContainer:has(.stackMenu) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    width: 100vw;
+}
+
+.appContainer:has(.stackMenuRight) {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    width: 100vw;
+}
+
+.menuButton {
+    width: 100%;
+    height: 15vh;
+
+    padding-bottom: 5px;
+}
+
+/*Standard header*/
+.header {
+    padding-left: 3.5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    
+    width: 100vw;
+}
+
+/*Parallax header*/
+.parallaxHeader {
+    height: 30vh;
+    background: url('../media/main-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    vertical-align: top;
+    transform-origin: center top;
+    transform: translateZ(-1px) scale(2);
+
+}
+
 .mainContainer:has(.parallaxHeader) { /*Keith Clark parralax pure css solution*/
     height: 100vh;
     max-height: 100%;
@@ -150,26 +221,13 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     grid-template-columns: 1fr;
 }
 
-.header {
-    padding-left: 3.5vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    
-    width: 100vw;
+.mainContainer:has(.parallaxHeader) > .appContainer {
+    max-height: 100%;
+    background: transparent;
+    transform: translateZ(0);
 }
 
-.parallaxHeader {
-    height: 30vh;
-    background: url('../media/main-background.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    vertical-align: top;
-    transform-origin: center top;
-    transform: translateZ(-1px) scale(2);
-
-}
-  
+/*Fullscreen header*/
 .fullscreenHeader {
     position: fixed;
 
@@ -209,6 +267,11 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     padding-top: 0;
 }
 
+.fullscreenHeader + .appContainer{
+    padding-top: 15vh;
+}
+
+/*Page*/
 .pageContainer {
     padding-bottom: 10vh;
     padding-top: 5vh;
@@ -217,61 +280,6 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     height: 100%;
 
     min-height: 100vh;
-}
-
-.mainContainer:has(.parallaxHeader) > .appContainer {
-    max-height: 100%;
-    background: transparent;
-    transform: translateZ(0);
-}
-
-.fullscreenHeader + .appContainer{
-    padding-top: 15vh;
-}
-
-.appContainer:has(.stackMenu) {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-
-    width: 100vw;
-}
-
-.appContainer:has(.stackMenuRight) {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-
-    width: 100vw;
-}
-
-.appContainer:has(.headerMenu) {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    width: 100vw;
-}
-
-.stackMenu { /*Stack of buttons menu*/
-    width: 25vw;
-}
-
-.stackMenuRight {
-    order: 1;
-    width: 25vw;
-}
-
-.headerMenu { /*Menu bar across top*/
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
-    width: 100vw;
-    height: 13.5vh;
-}
-
-.menuButton {
-    width: 100%;
-    height: 15vh;
-
-    padding-bottom: 5px;
 }
 
 .footer {
@@ -295,7 +303,7 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     height: 30vh;
 }
 
-/*Useful layouts*/
+/*Useful styling*/
 .centerContent {
     margin: auto;
 }
