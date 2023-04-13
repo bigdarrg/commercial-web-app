@@ -16,7 +16,7 @@ server.use(cors());
 server.use(express.json());
 
 //Runs build placed in public dir
-server.use(express.static(path.join(__dirname + "/public")));
+server.use(express.static(path.join(__dirname + "/build")));
 
 //Opening connection to the database
 async function connectToDB() {
