@@ -27,7 +27,7 @@ router.route('/send_query').post((req, res) => {
         });
 
         const reqInfo = await transporter.sendMail({
-            from: `<${process.env.email}>`,
+            from: `<${process.env.EMAIL}>`,
             to: process.env.EMAIL,
             subject: "You've recieved a query!",
             html: email
