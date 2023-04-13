@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "honepage": "",
   "private": true,
   "dependencies": {
     "@fontsource/space-grotesk": "^4.5.13",
