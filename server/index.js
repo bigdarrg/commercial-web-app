@@ -20,7 +20,7 @@ server.use(express.static(path.join(__dirname + "/public")));
 
 //Connecting to uri where our database is stored
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {} );
+mongoose.connect(uri, {});
 
 //Opening connection to the database
 async function connectToDB() {
