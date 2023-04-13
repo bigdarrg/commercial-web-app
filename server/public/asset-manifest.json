@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b6abfb7.css",
+    "main.js": "/static/js/main.6db3e855.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/example4.jpg": "/static/media/example4.5c134212ac1fea1867a9.jpg",
+    "static/media/example1.jpg": "/static/media/example1.fd0a11cf7117d0be8633.jpg",
+    "static/media/main-background.jpg": "/static/media/main-background.fd0a11cf7117d0be8633.jpg",
+    "static/media/example2.jpg": "/static/media/example2.9c0d59cf7ba015d3b26a.jpg",
+    "static/media/example3.jpg": "/static/media/example3.951ae20a4900919579da.jpg",
+    "static/media/home-image.jpg": "/static/media/home-image.786f20cb785e28e89eb4.jpg",
+    "static/media/award-3.png": "/static/media/award-3.e2d0ca3bee439155bc7d.png",
+    "static/media/award-4.png": "/static/media/award-4.d37cf844a441bf58bfd6.png",
+    "static/media/award-2.png": "/static/media/award-2.d1bbbd7f3f9b11f5e941.png",
+    "static/media/award-1.png": "/static/media/award-1.53040f9b995fd6d6bc5c.png",
+    "static/media/space-grotesk-all-400-normal.woff": "/static/media/space-grotesk-all-400-normal.625410290983f0e0895a.woff",
+    "static/media/space-grotesk-latin-400-normal.woff2": "/static/media/space-grotesk-latin-400-normal.0a4ba2bd1f7894e1cc0b.woff2",
+    "static/media/space-grotesk-latin-ext-400-normal.woff2": "/static/media/space-grotesk-latin-ext-400-normal.05e3af65b5da2af347ad.woff2",
+    "static/media/space-grotesk-vietnamese-400-normal.woff2": "/static/media/space-grotesk-vietnamese-400-normal.799f8d2e84c3f8dd8ca1.woff2",
+    "index.html": "/index.html",
+    "main.4b6abfb7.css.map": "/static/css/main.4b6abfb7.css.map",
+    "main.6db3e855.js.map": "/static/js/main.6db3e855.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b6abfb7.css",
+    "static/js/main.6db3e855.js"
+  ]
+}
