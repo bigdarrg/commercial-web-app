@@ -18,12 +18,12 @@ server.use(express.json());
 //Runs build placed in public dir
 server.use(express.static(path.join(__dirname + "/public")));
 
-//Connecting to uri where our database is stored
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {});
-
 //Opening connection to the database
 async function connectToDB() {
+    //Connecting to uri where our database is stored
+    const uri = process.env.MONGODB_URI;
+    mongoose.connect(uri, {});
+
     const connection = await mongoose.connection; 
 
     connection.once('open', () => { //once connection is open
