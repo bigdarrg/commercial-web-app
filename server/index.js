@@ -2,10 +2,10 @@
 const express = require('express');
 const path = require('path');
 //const cors = require('cors');
-//const mongooseModule = require('mongoose');
+const mongooseModule = require('mongoose');
 
 //Having our environment variable in the .env file
-//require('dotenv').config();
+require('dotenv').config();
 
 //Creating the express server
 const server = express();
@@ -17,13 +17,13 @@ server.use(express.json());
 server.use(express.static(path.join(__dirname + "/public")));
 
 //Connecting to uri where our database is stored
-//const uri = process.env.ATLAS_URI;
-//mongooseModule.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true} );
+const uri = process.env.ATLAS_URI;
+mongooseModule.connect(uri, {} );
 
-//const connection = mongooseModule.connection; 
-//connection.once('open', () => { //once connection is open
-//    console.log("MongoDB database connection established successfully");
-//}); 
+const connection = mongooseModule.connection; 
+connection.once('open', () => { //once connection is open
+    console.log("MongoDB database connection established successfully");
+}); 
 
 //When someone goes to our URL/__site__ it will load routes/__site__.js
 //const ingredientsRouter = require('./routes/ingredients');
