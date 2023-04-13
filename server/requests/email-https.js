@@ -38,4 +38,41 @@ router.route('/send_query').post((req, res) => {
         .catch(e => console.log(e));
 });
 
+router.route('/send_booking').post((req, res) => {
+    const informationToSend = req.body; 
+
+    const email = `
+        <h1>You have a new booking!</h1>
+        <p>Service: ${informationToSend.service}</p>
+        <p>Name: ${informationToSend.name}</p>
+        <p>Email: ${informationToSend.email}</p>
+        <p>Telephone: ${informationToSend.telephone}</p>
+        <p>Date: ${informationToSend.date}</p>
+        <p>Time: ${informationToSend.time}</p>
+    `;
+
+    async function sendEmail(){
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.office365.com',
+            service: 'Outlook365',
+            port: 587,
+            secure: true,
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+
+        const reqInfo = await transporter.sendMail({
+            from: `<${process.env.EMAIL}>`,
+            to: process.env.EMAIL,
+            subject: "You've recieved a booking!",
+            html: email
+        })
+    }
+
+    sendEmail()
+        .catch(e => console.log(e));
+});
+
 module.exports = router;

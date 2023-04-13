@@ -89,7 +89,7 @@ export default class Booking extends Component {
     this.timeUpdated = this.timeUpdated.bind(this);
     this.infoSubmitted = this.infoSubmitted.bind(this);
 
-    this.bookNow = this.bookNow.bind(this);
+    this.bookNow = this.bookNow.bind(this); 
   }
 
   componentDidMount() {
@@ -100,6 +100,15 @@ export default class Booking extends Component {
 
   bookNow(){
     axios.post("/bookings/make_booking", {
+      service: this.state.selectedService,
+      date: formatIntToTwoDigits(this.state.selectedDate.day) + "/" + formatIntToTwoDigits(months.indexOf(this.state.selectedDate.month) + 1) + "/" + String(currentDate.getFullYear()),
+      time: formatIntToTwoDigits(this.state.selectedTime.hour) + ":" + formatIntToTwoDigits(this.state.selectedTime.minute),
+      name: this.state.userInfo.fname + " " + this.state.userInfo.sname,
+      email: this.state.userInfo.email,
+      telephone: this.state.userInfo.telephone
+    })
+
+    axios.post("/emails/send_booking", {
       service: this.state.selectedService,
       date: formatIntToTwoDigits(this.state.selectedDate.day) + "/" + formatIntToTwoDigits(months.indexOf(this.state.selectedDate.month) + 1) + "/" + String(currentDate.getFullYear()),
       time: formatIntToTwoDigits(this.state.selectedTime.hour) + ":" + formatIntToTwoDigits(this.state.selectedTime.minute),
