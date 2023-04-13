@@ -38,7 +38,7 @@ function formatIntToTwoDigits(number){
 
 //This is needed data for the time selector
 //---- Hours & minutes (ALL)
-const minutes = configData.slots;
+const minutes = configData.SLOTS;
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 var currentDateTime = new Date();

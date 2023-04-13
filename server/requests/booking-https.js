@@ -7,6 +7,7 @@ router.route('/load_bookings').get((req, res) => {
     bookings.find() 
         .then(bookings => res.json(bookings))
         .catch(err => res.status(400).json('Error: ' + err));
+
 });
 
 router.route('/make_booking').post((req, res) => {
