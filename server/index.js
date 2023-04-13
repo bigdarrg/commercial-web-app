@@ -23,10 +23,15 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {} );
 
 //Opening connection to the database
-const connection = mongoose.connection; 
-connection.once('open', () => { //once connection is open
-    console.log("MongoDB database connection established successfully");
-}); 
+async function connectToDB() {
+    const connection = await mongoose.connection; 
+
+    connection.once('open', () => { //once connection is open
+        console.log("MongoDB database connection established successfully");
+    }); 
+}
+
+connectToDB();
 
 //Inititalising HTTPS reqs 
 const bookingsRouter = require('./requests/booking-https');
