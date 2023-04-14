@@ -1,4 +1,6 @@
-//This is a booking component which is set-up based on the provided config file. 
+//This is a booking component which is set-up based on the provided config file, it is composed of 5 sub components. It updates based on the bookings from the setup database (in backend),
+//and upon completion will store the booking, and email the website owner prompting that a new booking has been made. It also sends a confirmation email to the person who filled out the form.
+//It emulates a step-by-step completion using booleans and conditional rendering.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -14,7 +16,7 @@ import InfoForm from './info-form.component';
 import SectionCompleted from './section-completed.component';
 
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";
@@ -81,7 +83,9 @@ export default class Booking extends Component {
         infoForm: false
       },
 
-      bookings: undefined
+      bookings: undefined,
+
+      loading: true
     };
 
     this.serviceUpdated = this.serviceUpdated.bind(this);
@@ -94,7 +98,10 @@ export default class Booking extends Component {
 
   componentDidMount() {
     axios.get("/bookings/load_bookings").then(res => {
-      this.setState({bookings: res.data});
+      this.setState({
+        bookings: res.data,
+        loading: false
+      });
     });
   }
 
@@ -183,7 +190,11 @@ export default class Booking extends Component {
     return (
       //Here conditional rendering has been used to show parts of the form one by one based on a set of booleans representing the completion of the last section.
       <div className={[staticFeatures.bookingContainer, websiteStyle.bookingContainer].join(' ')}>
-        {(this.state.sectionCompleted.serviceSelect === false) && /*If service select not complete render...*/
+        {(this.state.loading)&&
+          <p className={staticFeatures.textCentered}><b>...</b></p>
+        }
+
+        {(this.state.loading === false)&&(this.state.sectionCompleted.serviceSelect === false) && /*If service select not complete render...*/
           <PriceList handleSelect={this.serviceUpdated}/>
         }
         {(this.state.sectionCompleted.serviceSelect === true) && /*If service select complete render...*/

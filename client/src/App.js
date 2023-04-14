@@ -1,3 +1,4 @@
+//Importing tools
 import { HashRouter as Router, Routes, Route} from "react-router-dom";
 import { Link } from 'react-router-dom';
 import "../src/App.css"
@@ -10,7 +11,7 @@ import modernStyle from "./css-modules/modern.module.css";
 import rusticStyle from "./css-modules/rustic.module.css";
 
 //Loading configuration
-import configData from './config/barber-site.config.json';
+import configData from './config/config.json';
 
 //Loading page components
 import Home from "./components/pages/home.page";
@@ -21,7 +22,6 @@ import ContactUs from "./components/pages/contact-us.page";
 import Thanks from "./components/pages/thanks.page";
 
 import Socials from "./components/social-media-panel.component";
-
 
 //Importing styling resources
 import { faBook, faContactCard, faHome, faImage, faInfoCircle} from "@fortawesome/free-solid-svg-icons";

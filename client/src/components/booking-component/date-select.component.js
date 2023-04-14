@@ -2,7 +2,6 @@
 //The properties day (int) and month (string) will be the date the component's state will be set to by default.
 
 //It will only be used for used for booking for the current year as no year change setting is implemented for this component.
-
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";

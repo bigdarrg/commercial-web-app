@@ -1,5 +1,4 @@
-//This is a component which displays any images placed in the ../media/gallery-images folder in an auto height, fixed width carousel. It uses the image file's name as the title on the carousel.
-
+//This is a component which displays any images placed in the ../media/gallery-images folder in an auto height, fixed width carousel.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 

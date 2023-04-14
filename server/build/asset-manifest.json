@@ -1,25 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.6603ec3d.css",
-    "main.js": "/static/js/main.f5769de2.js",
+    "main.css": "/static/css/main.52e0ff42.css",
+    "main.js": "/static/js/main.37c01bee.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/example4.jpg": "/static/media/example4.5c134212ac1fea1867a9.jpg",
-    "static/media/example1.jpg": "/static/media/example1.fd0a11cf7117d0be8633.jpg",
-    "static/media/main-background.jpg": "/static/media/main-background.fd0a11cf7117d0be8633.jpg",
-    "static/media/example2.jpg": "/static/media/example2.9c0d59cf7ba015d3b26a.jpg",
-    "static/media/example3.jpg": "/static/media/example3.951ae20a4900919579da.jpg",
-    "static/media/home-image.jpg": "/static/media/home-image.786f20cb785e28e89eb4.jpg",
     "static/media/award-3.png": "/static/media/award-3.e2d0ca3bee439155bc7d.png",
     "static/media/award-4.png": "/static/media/award-4.d37cf844a441bf58bfd6.png",
     "static/media/award-2.png": "/static/media/award-2.d1bbbd7f3f9b11f5e941.png",
     "static/media/award-1.png": "/static/media/award-1.53040f9b995fd6d6bc5c.png",
+    "static/media/parallax-header.jpg": "/static/media/parallax-header.4334d1751a76ff0ef23f.jpg",
+    "static/media/gallery-image.jpg": "/static/media/gallery-image.395378b9d2dda3ff6ecd.jpg",
+    "static/media/showcase-image.jpg": "/static/media/showcase-image.63c8e949f2eb3c9569e0.jpg",
     "index.html": "/index.html",
-    "main.6603ec3d.css.map": "/static/css/main.6603ec3d.css.map",
-    "main.f5769de2.js.map": "/static/js/main.f5769de2.js.map",
+    "main.52e0ff42.css.map": "/static/css/main.52e0ff42.css.map",
+    "main.37c01bee.js.map": "/static/js/main.37c01bee.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6603ec3d.css",
-    "static/js/main.f5769de2.js"
+    "static/css/main.52e0ff42.css",
+    "static/js/main.37c01bee.js"
   ]
 }

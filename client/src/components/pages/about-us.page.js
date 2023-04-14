@@ -1,8 +1,9 @@
+//Importing tools
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";
@@ -18,6 +19,9 @@ import LocationMap from '../maps.component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
+//Importing images
+import showcaseImage from '../../media/showcase-image.jpg';
+
 //Determine website styling module from the config file
 const websiteStyle = (function() {
   if (configData.STYLE === "clean"){
@@ -29,11 +33,22 @@ const websiteStyle = (function() {
   }
 })();
 
+var showMap = false;
+var showImage = false;
+
 const pageLayout = (function() {
-  if (configData.ABOUTUSLAYOUT === "descfirst"){
+  if (configData.ABOUTUSLAYOUT === "descriptionFirstWithMap"){
+    showMap = true;
     return staticFeatures.pageLayout2
-  }else if (configData.ABOUTUSLAYOUT === "desclast"){
+  }else if (configData.ABOUTUSLAYOUT === "descriptionLastWithMap"){
+    showMap = true;
     return staticFeatures.pageLayout6
+  }else if (configData.ABOUTUSLAYOUT === "descriptionFirstWithImage"){
+    showImage = true;
+    return staticFeatures.pageLayout2;
+  }else if (configData.ABOUTUSLAYOUT === "descriptionLastWithImage"){
+    showImage = true;
+    return staticFeatures.pageLayout6;
   }
 })();
 
@@ -63,7 +78,14 @@ export default class AboutUs extends Component {
               {configData.COUNTRY}</i>
             </div>
 
-            <LocationMap lat={40.7128} lng={-74.0060}/>
+            {(showMap)&&
+              <LocationMap/>}
+
+            {(showImage)&&
+              <div className={staticFeatures.imageBox2}>
+                <img className={staticFeatures.image} src={showcaseImage} alt={"SHOWCASE"}/>
+              </div>
+            }
         </div> 
       </div>
     );

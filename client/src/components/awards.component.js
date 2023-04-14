@@ -1,9 +1,9 @@
-//This is a awards panel component which can display awards won by the business. It will size it's self to whatever parent div it is placed for re-usability.
+//This is a awards panel component which can display awards won by the business. It will size its self to whatever parent div it is placed for re-usability.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Loading configuration
-import configData from '../config/barber-site.config.json';
+import configData from '../config/config.json';
 
 //Importing styling modules
 import staticFeatures from "../css-modules/static.module.css";

@@ -1,8 +1,9 @@
+//Importing tools
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";
@@ -15,7 +16,7 @@ import rusticStyle from "../../css-modules/rustic.module.css";
 import Awards from '../awards.component';
 
 //Importing images
-import homeImage from '../../media/home-image.jpg';
+import showcaseImage from '../../media/showcase-image.jpg';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
@@ -28,11 +29,19 @@ const websiteStyle = (function() {
   }
 })();
 
+var showAwards = true;
+
 const pageLayout = (function() {
-  if (configData.HOMELAYOUT === "compact"){
+  if (configData.HOMELAYOUT === "compactImage"){
     return staticFeatures.pageLayout1
-  }else if (configData.HOMELAYOUT === "large"){
+  }else if (configData.HOMELAYOUT === "compactImageNoAwards"){
+    showAwards = false;
+    return staticFeatures.pageLayout1;
+  }else if (configData.HOMELAYOUT === "largeImage"){
     return staticFeatures.pageLayout5
+  }else if (configData.HOMELAYOUT === "largeImageNoAwards"){
+    showAwards = false;
+    return staticFeatures.pagelayout5;
   }
 })();
 
@@ -61,10 +70,12 @@ export default class Home extends Component {
             </div>
 
             <div className={staticFeatures.imageBox}>
-              <img className={staticFeatures.image} src={homeImage} alt={"WELCOME"}/>
+              <img className={staticFeatures.image} src={showcaseImage} alt={"WELCOME"}/>
             </div>
 
-            <Awards/>
+            {(showAwards)&&
+              <Awards/>}
+
         </div> 
       </div>
     );

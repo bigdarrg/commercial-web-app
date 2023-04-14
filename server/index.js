@@ -40,6 +40,9 @@ server.use('/bookings', bookingsRouter);
 const emailsRouter = require('./requests/email-https');
 server.use('/emails', emailsRouter);
 
+const mapsRouter = require('./requests/maps-https');
+server.use('/maps', mapsRouter);
+
 //Starting the server
 server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

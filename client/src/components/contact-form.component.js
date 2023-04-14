@@ -1,11 +1,11 @@
-//The contact form component will take a wesbite user's inputs and store it in it's state. When the submit button is pressed it will run the handler function passed in the
-// 'submitHandler' prop.
+//The contact form component will take a wesbite user's inputs and store it in it's state. When the submit button is pressed it will make a HTTP request to url/emails/send_query with the 
+//data it has collected.
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 
 //Loading configuration
-import configData from '../config/barber-site.config.json';
+import configData from '../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../css-modules/static.module.css";
@@ -13,9 +13,6 @@ import staticFeatures from "../css-modules/static.module.css";
 import cleanStyle from "../css-modules/clean.module.css";
 import modernStyle from "../css-modules/modern.module.css";
 import rusticStyle from "../css-modules/rustic.module.css";
-
-//Importing sub components
-import Space from './spacing.component';
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
@@ -114,7 +111,7 @@ export default class ContactForm extends Component {
                     <input onChange={this.handleTelephoneChange} className={staticFeatures.contactFormInput} type="tel" pattern="^((\+44)|(0)) ?\d{4} ?\d{6}$"
                     placeholder="Telephone" required/>
 
-                    <Space size="small"/>
+                    <div className={staticFeatures.smallSpace}/>
 
                     <div className={staticFeatures.textCentered}>
                         Query
@@ -123,7 +120,7 @@ export default class ContactForm extends Component {
                     <textarea onChange={this.handleQueryChange} className={staticFeatures.contactFormQuery} type="text"
                     placeholder="Ask away, we're happy to help!" required/>
 
-                    <Space size="small"/>
+                    <div className={staticFeatures.smallSpace}/>
 
                     <input type="submit" value="SUBMIT" className={websiteStyle.menuButton}/>
                 </form>

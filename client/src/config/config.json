@@ -1,0 +1,49 @@
+{
+    "TITLE": "TEMPLATE SITE",
+    "DESCRIPTION": "This config file information should be replaced by the businesses info.",
+    "HOUSEANDSTREET": "Buckingham Building",
+    "POSTCODE": "PO1 3HE",
+    "PROVINCE": "Portsmouth",
+    "COUNTRY": "England",
+
+    "OPENINGTIMES": {
+        "MONDAY": "09:00-17:30",
+        "TUESDAY": "09:00-17:30",
+        "WEDNESDAY": "09:00-17:30",
+        "THURSDAY": "09:00-17:30",
+        "FRIDAY": "09:00-17:30",
+        "SATURDAY": "09:00-17:30",
+        "SUNDAY": "10:00-16:00"
+    },
+    "PRICES": {
+        "Service name 1": 1,
+        "Service name 2": 2,
+        "Service name 3": 3,
+        "Service name 4": 4,
+        "Service name 5": 5
+    }, 
+    "CURRENCY": "£",
+    "SLOTS": [15, 30, 45],
+
+    "INSTAGRAM": "www.instagram.com",
+    "FACEBOOK": "www.facebook.com",
+    "TWITTER": "www.twitter.com",
+    "TELEPHONE": "07123456789",
+    "EMAIL": "exampleemail@template.te",
+
+    "HOMEPAGETEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis scelerisque aliquet. Nam rhoncus dignissim sollicitudin. Integer pretium nisi pellentesque, tempus est sit amet, luctus elit. Aliquam pharetra erat quis dapibus ultricies. Vestibulum odio odio, viverra at pharetra a, rutrum non risus. ",
+    "HOMEPAGETEXT2": "Donec dignissim, eros vel consequat vestibulum, urna ligula ultrices tortor, sed semper massa enim ut eros. Fusce sodales magna ut nisi ullamcorper tempor sed vel nibh. Maecenas gravida nunc ut odio dignissim, at egestas dolor pretium. Cras vitae magna vel diam bibendum tincidunt sit amet vitae odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "ABOUTUSTEXT": "Curabitur placerat metus at neque vehicula, id condimentum sapien imperdiet. Vivamus nec ipsum facilisis, posuere purus tincidunt, euismod urna. Nunc in odio justo. Donec eget tincidunt nisl. Suspendisse rhoncus, dui a finibus elementum, augue magna maximus justo, ut elementum diam purus et risus. Vestibulum dictum sem sed elit facilisis sodales. ",
+    "GALLERYTEXT": "Donec gravida pretium nibh a tempus. Suspendisse laoreet turpis molestie laoreet pulvinar. Nullam convallis sollicitudin ex, et tempor nulla molestie at. Vivamus quam massa, facilisis sed interdum ac, lobortis sed nulla. Sed gravida et dui vel fringilla. Vivamus nulla libero, sodales in placerat id, varius ut lectus. Mauris non risus eget dolor euismod posuere. Nunc vestibulum eros quis dolor blandit semper.",
+    "CONTACTUSTEXT": "Nulla at mauris pretium sapien interdum sagittis id sed nisl. Duis at pretium sem. Cras feugiat arcu in leo venenatis, vitae luctus lacus facilisis. Etiam vehicula ac dolor vel sodales. Praesent tellus massa, sagittis eu urna ac, rhoncus elementum diam. Pellentesque ac sem risus. Ut imperdiet arcu urna, nec interdum ligula rutrum non.",
+
+    "STYLE" : "modern",
+    "MENUPOSITION": "header",
+    "HEADERTYPE": "parallax",
+
+    "HOMELAYOUT": "compactImage",
+    "ABOUTUSLAYOUT": "descriptionFirstWithMap",
+    "CONTACTUSLAYOUT": "descriptionFirst",
+
+    "GOOGLE_MAPS_API": "AIzaSyBmke7tEp7xh_gxn_xFVyeqFPfUBMWZN2Y"
+}

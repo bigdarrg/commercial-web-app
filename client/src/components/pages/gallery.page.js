@@ -1,8 +1,9 @@
+//Importing tools
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";

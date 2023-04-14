@@ -1,11 +1,9 @@
+//Importing tools
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faPhone } from '@fortawesome/free-solid-svg-icons';
-
 //Loading configuration
-import configData from '../../config/barber-site.config.json';
+import configData from '../../config/config.json';
 
 //Loading all styling modules
 import staticFeatures from "../../css-modules/static.module.css";
@@ -14,9 +12,12 @@ import cleanStyle from "../../css-modules/clean.module.css";
 import modernStyle from "../../css-modules/modern.module.css";
 import rusticStyle from "../../css-modules/rustic.module.css";
 
+//Loading styling resources
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 //Importing sub-components
 import ContactForm from '../contact-form.component';
-
 
 //Determine website styling module from the config file
 const websiteStyle = (function() {
@@ -30,9 +31,9 @@ const websiteStyle = (function() {
 })();
 
 const pageLayout = (function() {
-  if (configData.CONTACTUSLAYOUT === "descfirst"){
+  if (configData.CONTACTUSLAYOUT === "descriptionFirst"){
     return staticFeatures.pageLayout2
-  }else if (configData.CONTACTUSLAYOUT === "desclast"){
+  }else if (configData.CONTACTUSLAYOUT === "descriptionLast"){
     return staticFeatures.pageLayout6
   }
 })();
