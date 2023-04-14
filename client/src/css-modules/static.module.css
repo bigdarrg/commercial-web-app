@@ -5,6 +5,7 @@ html, body {
     padding: 0;
  }
 
+
 /*Document body changes for header types*/
 html:has(.parallaxHeader), body:has(.parallaxHeader) {
     overflow: hidden;
@@ -64,7 +65,7 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
 .imageBox {
     grid-area: image;
 
-    width: 100%;
+    width: 100%; 
     height: 100%;
 
     padding-left: 5vw;
@@ -405,6 +406,11 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     height: 15vh;
 }
 
+.bookingContainer .menuButton {
+    width: 100%;
+    height: 100%;
+}
+
 /*Section completed component*/
 .sectionCompleted {
     width: 100%;
@@ -683,6 +689,360 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     box-shadow: 1px 1px 8px #000;
 }
 
+/*Mobile app fixed styling, sizing, and positioning*/
+.mobileAppHomePage {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    row-gap: 2.5vh;
+ }
+
+ @media (orientation: landscape){ /*Hide app when turned landscape on mobile*/
+    .mobileAppLayout{
+        display: none;
+    }
+ }
+
+ .mobileHeaderSpace {
+    height: 6vh;
+ }
+
+ .mobileFixedHeader {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    width: 100vw;
+    height: auto; 
+
+    position: fixed;
+
+    padding-top: 1vh;
+    padding-bottom: 0.5vh;
+    padding-right: 4vw;
+
+    background-color: black;
+}
 
 
+.mobileMainTitle {
+    color: white;
 
+    font-size: 7vw;
+    letter-spacing: 1px;
+    font-family: serif;
+
+    text-align: center;
+}
+
+.mobileViewPrompt {
+    color: white;
+
+    font-size: 3vw;
+
+    text-align: right;
+}
+
+.mobileFixedFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    width: 100vw;
+    height: auto; 
+
+    position: fixed;
+    bottom: 0;
+
+    background-color: black;
+}
+
+
+.mobileButton {
+    width: 100%;
+    height: 8vh;
+
+    background-color: black;
+
+    color: white;
+
+    letter-spacing: 1px;
+    font-family: serif;
+
+    border-color: rgb(37, 37, 37);
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileButton:active {
+    background-color: rgb(37, 37, 37);
+}
+
+.mobileIcon {
+    width: 100%;
+    height: 100%;
+
+    transform: translate(7.5%, 7.5%);
+}
+
+/*Mobile bookings page*/
+.mobileAppBookingsPage {
+    width: 100vw;
+    height: auto;
+}
+
+.mobileAppBookingsPage > .bookingContainer {
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+
+    border-radius: 0;
+
+    background-color: white;
+}
+
+.mobileAppBookingsPage .pricesContainer {
+    margin-top: 5vh;
+
+    font-size: 4vw;
+}
+
+.mobileAppBookingsPage .priceListItem {
+    height: 10vh;
+
+    border: 1px solid darkgray;
+
+    font-size: 4vw;
+}
+
+.mobileAppBookingsPage .priceListItem:hover {
+    background-image: none;
+
+    background-color: lightgray;
+
+    box-shadow: 1px 1px 4px #000;
+}
+
+.mobileAppBookingsPage .priceListItem:focus {
+    background-image: none;
+
+    background-color: lightgray;
+
+    outline: none;
+
+    box-shadow: 1px 1px 4px #000;
+}
+
+.mobileAppBookingsPage .priceListButton {
+    color: black;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileAppBookingsPage .priceTextBox {
+    display : flex;
+    align-items : center;
+
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage div {
+    font-size: 4vw;
+}
+
+.mobileAppBookingsPage .sectionCompleted {
+    font-size: 3vw;
+
+    grid-template-columns: 1fr 2fr 3fr !important;
+
+    align-items: center;
+
+    height: 100%;
+
+    padding: 1vw;
+
+    margin-bottom: 2vh;
+}
+
+.mobileAppBookingsPage .monthSelectorContainer {
+    font-size: 4vw;
+}
+
+.mobileAppBookingsPage .monthArrowButton {
+    background: transparent;
+    border: none;
+
+    color: black;
+
+    box-shadow: 1px 1px 4px #000;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileAppBookingsPage .monthArrowButton:hover {
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .monthArrowButton:active {
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .monthArrowButton:focus {
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .dateSelectContainer {
+    height: 100%;
+}
+
+.mobileAppBookingsPage .dayGrid {
+    margin-top: 3vh;
+
+    height: 25vh;
+}
+
+.mobileAppBookingsPage .dayButton {
+    font-size: 3vw; 
+
+    border: 2px solid lightgray;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileAppBookingsPage .dayButton:enabled {
+    color: black;
+}
+
+.mobileAppBookingsPage .dayButton:enabled:hover {
+    box-shadow: 1px 1px 4px #000;
+
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .dayButton:focus {
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .dayButton:active {
+    background-image: none;
+
+    background-color: lightgray;
+}
+
+.mobileAppBookingsPage .timeSelectContainer {
+    font-size: 4vw;
+
+    margin-top: 3vh;
+}
+
+.mobileAppBookingsPage .availableTimesContainer {
+    row-gap: 0;
+    column-gap: 0;
+
+    max-width: 100%;
+
+    margin-top: 2vh;
+}
+
+.mobileAppBookingsPage .availableTimeButton {
+    font-size: 1.8vw;
+
+    margin: 0;
+
+    color: black;
+
+    border-radius: 0 !important;
+
+    border: 2px solid lightgray;
+
+    text-align: center;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileAppBookingsPage .availableTimeButton:focus {
+    background-color: lightgray;
+    background-image: none;
+
+    outline: none;
+}
+
+.mobileAppBookingsPage .availableTimeButton:hover {
+    background-color: lightgray;
+    background-image: none;
+}
+
+.mobileAppBookingsPage .availableTimeButton:active {
+    background-color: lightgray;
+    background-image: none;
+}
+
+.mobileAppBookingsPage .infoFormContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin-top: 2vh;
+}
+
+.mobileAppBookingsPage .menuButton {
+    width: 100%;
+    height: 8vh;
+
+    background-image: none;
+    background-color: black;
+
+    color: white;
+
+    letter-spacing: 1px;
+    font-family: serif;
+
+    border-color: rgb(37, 37, 37);
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.mobileAppBookingsPage .menuButton:active {
+    background-color: rgb(37, 37, 37);
+}
+
+.contactFormContainer {
+    grid-area: component;
+
+    width: 90%;
+    height: 100%;
+
+    margin-right: 5vw;
+
+    padding: 2vh;
+}
+
+.contactFormLabel {
+    width: 50%;
+
+    font-weight: 500;
+}
+
+.contactFormQuery {
+    height: 10vh;
+}

@@ -1,5 +1,6 @@
 //Importing tools
-import { HashRouter as Router, Routes, Route} from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserView, MobileView } from 'react-device-detect';
 import { Link } from 'react-router-dom';
 import "../src/App.css"
 
@@ -23,9 +24,13 @@ import Thanks from "./components/pages/thanks.page";
 
 import Socials from "./components/social-media-panel.component";
 
+//Loading mobile app
+import MobileApp from "./components/pages/mobile-app.page";
+
 //Importing styling resources
 import { faBook, faContactCard, faHome, faImage, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 //Determine website styling
 const websiteStyle = (function() {
@@ -71,77 +76,89 @@ const headerType = (function() {
 
 function App() {
   return (
-    <Router>
-    <div className={staticFeatures.mainContainer}>  
-      {/*Header:*/}
-      <div className={[headerType, websiteStyle.header].join(' ')}>
-        {(headerType === staticFeatures.fullscreenHeader) &&
-          <div className={[staticFeatures.fullscreenHeaderTitle, staticFeatures.mainTitle, websiteStyle.mainTitle].join(' ')}>{configData.TITLE}</div>
-        }
+  <div>
+    {/*Browser view*/}
+    <BrowserView>
+      <Router>
+      <div className={staticFeatures.mainContainer}>  
+        {/*Header:*/}
+        <div className={[headerType, websiteStyle.header].join(' ')}>
+          {(headerType === staticFeatures.fullscreenHeader) &&
+            <div className={[staticFeatures.fullscreenHeaderTitle, staticFeatures.mainTitle, websiteStyle.mainTitle].join(' ')}>{configData.TITLE}</div>
+          }
+        </div>
+        
+        {/*.appContainer determines a suitable page layout based on the chosen styling of its menu.*/}
+        <div className={[staticFeatures.appContainer, websiteStyle.appContainer].join(' ')}>
+            {/*Menu:*/}
+            <div className={[menuLayout, websiteStyle.menu].join(' ')}>
+                <div className={staticFeatures.menuButton}>
+                  <Link to="/home">
+                    <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faHome}/> Home</button>
+                  </Link>
+                </div>
+
+                <div className={staticFeatures.menuButton}>
+                  <Link to="/about-us">
+                    <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faInfoCircle}/> About us</button>
+                  </Link>
+                </div>
+
+                <div className={staticFeatures.menuButton}>
+                  <Link to="/bookings">
+                    <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faBook}/> Bookings</button>
+                  </Link>
+                </div>
+
+                <div className={staticFeatures.menuButton}>
+                  <Link to="/gallery">
+                    <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faImage}/> Gallery</button>
+                  </Link>
+                </div>
+
+                <div className={staticFeatures.menuButton}>
+                  <Link to="/contact">
+                    <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faContactCard}/> Contact</button>
+                  </Link>
+                </div>
+            </div>
+
+            {/*Page: this will dynamically render pages of the websites depending on the url the user is currently on using react-router-dom.*/}
+            <div>  
+              <div id="PageMainTitle" className={[staticFeatures.mainTitle, websiteStyle.mainTitle, websiteStyle.pageStyling].join(' ')}>{configData.TITLE}</div>
+
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/home" element={<Home/>}/>
+                <Route path="/about-us" element={<AboutUs/>}/>
+                <Route path="/bookings" element={<Bookings/>}/>
+                <Route path="/gallery" element={<GalleryPage/>}/>
+                <Route path="/contact" element={<ContactUs/>}/>
+                <Route path="/thanks" element={<Thanks/>}/>
+              </Routes>
+            </div>
+        </div>
+
+        {/*Footer: Setup as fixed bar at the bottom of the screen with 3 parts; left, centre & right.*/}
+        <div className={[staticFeatures.footer, websiteStyle.footer].join(' ')}>
+          {/*Left*/}
+          <div></div>
+          {/*Center*/}
+          <div></div>
+          {/*Right*/}
+          <div><Socials/></div>
+        </div>
       </div>
-      
-      {/*.appContainer determines a suitable page layout based on the chosen styling of its menu.*/}
-      <div className={[staticFeatures.appContainer, websiteStyle.appContainer].join(' ')}>
-          {/*Menu:*/}
-          <div className={[menuLayout, websiteStyle.menu].join(' ')}>
-              <div className={staticFeatures.menuButton}>
-                <Link to="/home">
-                  <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faHome}/> Home</button>
-                </Link>
-              </div>
+      </Router>
+    </BrowserView>
+    
+    {/*Mobile view*/}
+    <MobileView>
 
-              <div className={staticFeatures.menuButton}>
-                <Link to="/about-us">
-                  <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faInfoCircle}/> About us</button>
-                </Link>
-              </div>
+      <MobileApp/>
 
-              <div className={staticFeatures.menuButton}>
-                <Link to="/bookings">
-                  <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faBook}/> Bookings</button>
-                </Link>
-              </div>
-
-              <div className={staticFeatures.menuButton}>
-                <Link to="/gallery">
-                  <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faImage}/> Gallery</button>
-                </Link>
-              </div>
-
-              <div className={staticFeatures.menuButton}>
-                <Link to="/contact">
-                  <button className={websiteStyle.menuButton} type="button"><FontAwesomeIcon icon={faContactCard}/> Contact</button>
-                </Link>
-              </div>
-          </div>
-
-          {/*Page: this will dynamically render pages of the websites depending on the url the user is currently on using react-router-dom.*/}
-          <div>  
-            <div id="PageMainTitle" className={[staticFeatures.mainTitle, websiteStyle.mainTitle, websiteStyle.pageStyling].join(' ')}>{configData.TITLE}</div>
-
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/home" element={<Home/>}/>
-              <Route path="/about-us" element={<AboutUs/>}/>
-              <Route path="/bookings" element={<Bookings/>}/>
-              <Route path="/gallery" element={<GalleryPage/>}/>
-              <Route path="/contact" element={<ContactUs/>}/>
-              <Route path="/thanks" element={<Thanks/>}/>
-            </Routes>
-          </div>
-      </div>
-
-      {/*Footer: Setup as fixed bar at the bottom of the screen with 3 parts; left, centre & right.*/}
-      <div className={[staticFeatures.footer, websiteStyle.footer].join(' ')}>
-        {/*Left*/}
-        <div></div>
-        {/*Center*/}
-        <div></div>
-        {/*Right*/}
-        <div><Socials/></div>
-      </div>
-    </div>
-    </Router>
+    </MobileView>
+  </div>
   );
 }
 

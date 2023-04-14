@@ -226,7 +226,7 @@ export default class Booking extends Component {
         //If all sections of the form are completed...
           <div className={staticFeatures.completeBookingContainer}>
             <div>Complete your booking </div>
-            <button onClick={this.bookNow} className={websiteStyle.menuButton}>Book now</button>
+            <button onClick={this.bookNow} className={[staticFeatures.menuButton, websiteStyle.menuButton].join(' ')}>Book now</button>
           </div>
         } 
       </div>

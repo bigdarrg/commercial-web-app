@@ -99,7 +99,7 @@ export default class InfoForm extends Component {
 
                     <div className={staticFeatures.smallSpace}/>
 
-                    <input type="submit" value="SUBMIT" className={websiteStyle.menuButton}/>
+                    <input type="submit" value="SUBMIT" className={[staticFeatures.menuButton, websiteStyle.menuButton].join(' ')}/>
                 </form>
 
                 
