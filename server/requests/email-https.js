@@ -39,7 +39,6 @@ router.route('/send_query').post((req, res) => {
 });
 
 router.route('/send_booking').post((req, res) => {
-    console.log(req.url);
     if (req.url != '/favicon.ico') {
     const informationToSend = req.body; 
 

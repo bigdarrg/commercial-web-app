@@ -12,12 +12,13 @@ import staticFeatures from "../../css-modules/static.module.css";
 import Booking from '../booking-component/booking.component';
 
 //Importing images
-//import showcaseImage from '../../media/showcase-image.jpg';
+import showcaseImage from '../../media/showcase-image.jpg';
 
 //Loading icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons'
 import { faBook, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
+import ContactForm from '../contact-form.component';
 
 export default class MobileApp extends Component {
     constructor(props) {
@@ -28,11 +29,23 @@ export default class MobileApp extends Component {
           bookings: false,
           contact: false
         }
-      }
+
+        this.switchToThanks = this.switchToThanks.bind(this);
+    }
+
+    //Passed to child components to switch to thanks page
+    switchToThanks() {
+        this.setState({
+            home: false,
+            bookings: false,
+            contact: false,
+            thanks: true
+        });
+    }
 
     render() {
         return (
-        <div>
+        <div className={staticFeatures.mobileAppWrapper}>
             {/*Header*/}
             <div className={staticFeatures.mobileFixedHeader}>
                     <div className={staticFeatures.mobileMainTitle}>{configData.TITLE}</div>               <p className={staticFeatures.mobileViewPrompt}>Mobile view</p>
@@ -43,30 +56,48 @@ export default class MobileApp extends Component {
             {/*Home page*/}
             {(this.state.home)&&
                 <div className={staticFeatures.mobileAppHomePage}> 
-                    <div className={staticFeatures.mobileHeaderSpace} />
+                    <div className={staticFeatures.mobileSpacing} />
 
                     <div>{configData.DESCRIPTION}</div>
 
                     <div>{configData.HOMEPAGETEXT}</div>
+                    
+                    <img className={staticFeatures.image} src={showcaseImage} alt={"WELCOME"}/>
+
                 </div>              
             }
 
             {/*Bookings page*/}
             {(this.state.bookings)&&
                 <div className={staticFeatures.mobileAppBookingsPage}> 
-                    <div className={staticFeatures.mobileHeaderSpace} />
+                    <div className={staticFeatures.mobileSpacing} />
                     
-                    <Booking/>
+                    <Booking switchToThanks={this.switchToThanks}/>
                 </div>              
             }
 
             {/*Contact page*/}
             {(this.state.contact)&&
-                <div className={staticFeatures.mobileAppLayout}> 
-                    <div className={staticFeatures.mobileHeaderSpace} />
+                <div className={staticFeatures.mobileAppContactPage}> 
+                    <div className={staticFeatures.mobileSpacing} />
 
+                    <ContactForm switchToThanks={this.switchToThanks}/>
                 </div>              
             }
+
+            {/*Thanks page*/}
+            {(this.state.thanks)&&
+                <div className={staticFeatures.mobileAppLayout}> 
+                    <div className={staticFeatures.mobileSpacing} />
+
+                    <br/>
+
+                    <div>Thanks, we've recieved your request.</div>
+                </div>              
+            }
+
+            <div className={staticFeatures.mobileSpacing} />
+            <div className={staticFeatures.mobileSpacing} />
 
             {/*Footer*/}
             <div className={staticFeatures.mobileFixedFooter}>
@@ -83,13 +114,13 @@ export default class MobileApp extends Component {
                     <button className={staticFeatures.mobileButton}><FontAwesomeIcon className={staticFeatures.mobileIcon} icon={faTwitter} /></button>
                 </a>
                 {/*Home*/}
-                <button onClick={() => this.setState({home: true, bookings: false, contact: false})}
+                <button onClick={() => this.setState({home: true, bookings: false, contact: false, thanks: false})}
                         className={staticFeatures.mobileButton} type="button"><FontAwesomeIcon className={staticFeatures.mobileIcon} icon={faHome}/></button>
                 {/*Bookings*/}
-                <button onClick={() => this.setState({home: false, bookings: true, contact: false})}
+                <button onClick={() => this.setState({home: false, bookings: true, contact: false, thanks: false})}
                         className={staticFeatures.mobileButton} type="button"><FontAwesomeIcon className={staticFeatures.mobileIcon} icon={faBook}/></button>
                 {/*Contact us*/}
-                <button onClick={() => this.setState({home: false, bookings: false, contact: true})}
+                <button onClick={() => this.setState({home: false, bookings: false, contact: true, thanks: false})}
                         className={staticFeatures.mobileButton} type="button"><FontAwesomeIcon className={staticFeatures.mobileIcon} icon={faMessage}/></button>
             </div>
         </div>

@@ -124,7 +124,12 @@ export default class Booking extends Component {
       telephone: this.state.userInfo.telephone
     })
 
-    window.location.href = "/#/thanks";
+    //Hides component on mobile view through manipulating it's conditional rendering state variable
+    if (this.props.switchToThanks !== undefined) {
+      this.props.switchToThanks();
+    }
+
+    window.location.href = "/#/thanks"
   }
 
   serviceUpdated(serviceSelected){
@@ -189,47 +194,47 @@ export default class Booking extends Component {
 
     return (
       //Here conditional rendering has been used to show parts of the form one by one based on a set of booleans representing the completion of the last section.
-      <div className={[staticFeatures.bookingContainer, websiteStyle.bookingContainer].join(' ')}>
-        {(this.state.loading)&&
-          <p className={staticFeatures.textCentered}><b>...</b></p>
-        }
+        <div className={[staticFeatures.bookingContainer, websiteStyle.bookingContainer].join(' ')}>
+          {(this.state.loading)&&
+            <p className={staticFeatures.textCentered}><b>...</b></p>
+          }
 
-        {(this.state.loading === false)&&(this.state.sectionCompleted.serviceSelect === false) && /*If service select not complete render...*/
-          <PriceList handleSelect={this.serviceUpdated}/>
-        }
-        {(this.state.sectionCompleted.serviceSelect === true) && /*If service select complete render...*/
-          <SectionCompleted icon={faCartShopping} title={"Service"} info={this.state.selectedService}/>
-        }
+          {(this.state.loading === false)&&(this.state.sectionCompleted.serviceSelect === false) && /*If service select not complete render...*/
+            <PriceList handleSelect={this.serviceUpdated}/>
+          }
+          {(this.state.sectionCompleted.serviceSelect === true) && /*If service select complete render...*/
+            <SectionCompleted icon={faCartShopping} title={"Service"} info={this.state.selectedService}/>
+          }
 
-        {(this.state.sectionCompleted.dateTime === false) &&  (this.state.sectionCompleted.serviceSelect === true) && /*If service select complete, and date and time not complete, render...*/
-          <DateSelector handleSelect={this.dateUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month}/>
-        }
+          {(this.state.sectionCompleted.dateTime === false) &&  (this.state.sectionCompleted.serviceSelect === true) && /*If service select complete, and date and time not complete, render...*/
+            <DateSelector handleSelect={this.dateUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month}/>
+          }
 
-        {(this.state.sectionCompleted.dateTime === false) && (this.state.sectionCompleted.serviceSelect === true) &&
-          <TimeSelector handleSelect={this.timeUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month} bookings={this.state.bookings}/>
-        }
-        {(this.state.sectionCompleted.dateTime === true) && 
-          <SectionCompleted icon={faClock} title={"Date & Time"} info={
-            formatIntToTwoDigits(this.state.selectedDate.day) + "/" + formatIntToTwoDigits(months.indexOf(this.state.selectedDate.month) + 1) 
-            + " at " + formatIntToTwoDigits(this.state.selectedTime.hour) + ":" + formatIntToTwoDigits(this.state.selectedTime.minute)}/>
-        }
+          {(this.state.sectionCompleted.dateTime === false) && (this.state.sectionCompleted.serviceSelect === true) &&
+            <TimeSelector handleSelect={this.timeUpdated} day={this.state.selectedDate.day} month={this.state.selectedDate.month} bookings={this.state.bookings}/>
+          }
+          {(this.state.sectionCompleted.dateTime === true) && 
+            <SectionCompleted icon={faClock} title={"Date & Time"} info={
+              formatIntToTwoDigits(this.state.selectedDate.day) + "/" + formatIntToTwoDigits(months.indexOf(this.state.selectedDate.month) + 1) 
+              + " at " + formatIntToTwoDigits(this.state.selectedTime.hour) + ":" + formatIntToTwoDigits(this.state.selectedTime.minute)}/>
+          }
 
-        {(this.state.sectionCompleted.infoForm === false) && (this.state.sectionCompleted.serviceSelect === true) && (this.state.sectionCompleted.dateTime === true) &&
-          <InfoForm handleSubmit={this.infoSubmitted}/>
-        }
-        {(this.state.sectionCompleted.infoForm === true) && 
-          <SectionCompleted icon={faContactBook} title={"Your Information"} info={
-            this.state.userInfo.fname + " " + this.state.userInfo.sname}/>
-        }
+          {(this.state.sectionCompleted.infoForm === false) && (this.state.sectionCompleted.serviceSelect === true) && (this.state.sectionCompleted.dateTime === true) &&
+            <InfoForm handleSubmit={this.infoSubmitted}/>
+          }
+          {(this.state.sectionCompleted.infoForm === true) && 
+            <SectionCompleted icon={faContactBook} title={"Your Information"} info={
+              this.state.userInfo.fname + " " + this.state.userInfo.sname}/>
+          }
 
-        {(this.state.sectionCompleted.serviceSelect === true) && (this.state.sectionCompleted.dateTime === true) && (this.state.sectionCompleted.infoForm === true) && 
-        //If all sections of the form are completed...
-          <div className={staticFeatures.completeBookingContainer}>
-            <div>Complete your booking </div>
-            <button onClick={this.bookNow} className={[staticFeatures.menuButton, websiteStyle.menuButton].join(' ')}>Book now</button>
-          </div>
-        } 
-      </div>
+          {(this.state.sectionCompleted.serviceSelect === true) && (this.state.sectionCompleted.dateTime === true) && (this.state.sectionCompleted.infoForm === true) && 
+          //If all sections of the form are completed...
+            <div className={staticFeatures.completeBookingContainer}>
+              <div>Complete your booking </div>
+              <button onClick={this.bookNow} className={[staticFeatures.menuButton, websiteStyle.menuButton].join(' ')}>Book now</button>
+            </div>
+          } 
+        </div>
     );
   }
 }

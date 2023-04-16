@@ -35,7 +35,7 @@ export default class Bookings extends Component {
               Book with us.
             </div>
 
-            <Booking />
+            <Booking/>
         </div> 
       </div>
     );

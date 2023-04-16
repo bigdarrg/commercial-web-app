@@ -74,6 +74,11 @@ export default class ContactForm extends Component {
             telephone: this.state.telephone,
             query: this.state.query
           })
+
+        //Hides component on mobile view through manipulating it's conditional rendering state variable
+        if (this.props.switchToThanks !== undefined) {
+            this.props.switchToThanks();
+        }
       
         window.location.href = "/#/thanks";
     }
@@ -122,7 +127,7 @@ export default class ContactForm extends Component {
 
                     <div className={staticFeatures.smallSpace}/>
 
-                    <input type="submit" value="SUBMIT" className={websiteStyle.menuButton}/>
+                    <input type="submit" value="SUBMIT" className={[staticFeatures.menuButton, websiteStyle.menuButton].join(' ')}/>
                 </form>
 
             </div>
