@@ -43,7 +43,5 @@
 
     "HOMELAYOUT": "compactImage",
     "ABOUTUSLAYOUT": "descriptionFirstWithMap",
-    "CONTACTUSLAYOUT": "descriptionFirst",
-
-    "GOOGLE_MAPS_API": "AIzaSyBmke7tEp7xh_gxn_xFVyeqFPfUBMWZN2Y"
+    "CONTACTUSLAYOUT": "descriptionFirst"
 }

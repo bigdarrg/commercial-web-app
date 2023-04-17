@@ -30,6 +30,7 @@ export class LocationMap extends Component {
     this.state = {
       longitude: undefined,
       latitude: undefined,
+      apiKey: undefined,
       loading: true
     }
   }
@@ -45,12 +46,13 @@ export class LocationMap extends Component {
     }).then(res => {
       const coords = res.data;
 
-      this.setState({
-        latitude: coords.lat,
-        longitude: coords.lng,
-        loading: false   
-      });
+        this.setState({
+          latitude: coords.lat,
+          longitude: coords.lng,
+          loading: false   
+        });
     });
+    
   }
 
   render() {
@@ -71,13 +73,15 @@ export class LocationMap extends Component {
     return (
       <div className={staticFeatures.mapContainer}>
         {(this.state.loading === false)&& 
-          <Map google={this.props.google} style={mapSize} containerStyle={containerStyle} zoom={14} initialCenter={{lat: this.state.latitude, lng: this.state.longitude}}/>
+            <Map google={this.props.google} style={mapSize} containerStyle={containerStyle} zoom={14} initialCenter={{lat: this.state.latitude, lng: this.state.longitude}}/>
         }
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: configData.GOOGLE_MAPS_API
-})(LocationMap);
+export default GoogleApiWrapper(
+  (props) => ({
+    apiKey: process.env.REACT_APP_MAPS_API,
+  }
+))(LocationMap)
