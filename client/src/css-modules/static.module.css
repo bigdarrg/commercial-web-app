@@ -689,6 +689,10 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
     box-shadow: 1px 1px 8px #000;
 }
 
+.appContainer:has(.stackMenu) .mapContainer, .appContainer:has(.stackMenuRight) .mapContainer {
+    width: 40vw;
+}
+
 /*Mobile app fixed styling, sizing, and positioning*/
 .mobileAppHomePage {
     display: grid;
@@ -758,7 +762,7 @@ html:has(.fullscreenHeader), body:has(.fullscreenHeader) {
 
 .mobileAppHomePage .image {
     width: 96vw;
-    height: fit-content;
+    height: auto;
 
     margin-top: 5vh;
     margin-left: 2vw;

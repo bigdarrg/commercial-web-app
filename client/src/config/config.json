@@ -37,9 +37,9 @@
     "GALLERYTEXT": "Donec gravida pretium nibh a tempus. Suspendisse laoreet turpis molestie laoreet pulvinar. Nullam convallis sollicitudin ex, et tempor nulla molestie at. Vivamus quam massa, facilisis sed interdum ac, lobortis sed nulla. Sed gravida et dui vel fringilla. Vivamus nulla libero, sodales in placerat id, varius ut lectus. Mauris non risus eget dolor euismod posuere. Nunc vestibulum eros quis dolor blandit semper.",
     "CONTACTUSTEXT": "Nulla at mauris pretium sapien interdum sagittis id sed nisl. Duis at pretium sem. Cras feugiat arcu in leo venenatis, vitae luctus lacus facilisis. Etiam vehicula ac dolor vel sodales. Praesent tellus massa, sagittis eu urna ac, rhoncus elementum diam. Pellentesque ac sem risus. Ut imperdiet arcu urna, nec interdum ligula rutrum non.",
 
-    "STYLE" : "modern",
+    "STYLE" : "rustic",
     "MENUPOSITION": "header",
-    "HEADERTYPE": "parallax",
+    "HEADERTYPE": "none",
 
     "HOMELAYOUT": "compactImage",
     "ABOUTUSLAYOUT": "descriptionFirstWithMap",
