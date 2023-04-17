@@ -80,8 +80,7 @@ export class LocationMap extends Component {
   }
 }
 
-export default GoogleApiWrapper(
-  (props) => ({
+export default GoogleApiWrapper({
     apiKey: process.env.REACT_APP_MAPS_API,
   }
-))(LocationMap)
+)(LocationMap)
